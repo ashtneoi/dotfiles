@@ -1,7 +1,9 @@
 dotfiles
 ========
 
-## Setup (ssh)
+## Setup
+
+### ssh
 
 	cd ~
 	git init
@@ -9,7 +11,7 @@ dotfiles
 	git pull github master
 	git branch -u github/master
 
-## Setup (read-only)
+### read-only
 
 	cd ~
 	git init
@@ -17,5 +19,6 @@ dotfiles
 	git pull github master
 	git branch -u github/master
 
+## Usage
 
-Then repeat <code>git pull</code> as often as needed.
+	git pull
