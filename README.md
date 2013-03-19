@@ -7,7 +7,7 @@ dotfiles
 
 	cd ~
 	git init
-	git remote add -f -t master github 'git@github.com:drkitty/dotfiles.git'
+	git remote add -f github 'git@github.com:drkitty/dotfiles.git'
 	git pull github master
 	git branch -u github/master
 
@@ -15,7 +15,7 @@ dotfiles
 
 	cd ~
 	git init
-	git remote add -f -t master github 'git://github.com/drkitty/dotfiles.git'
+	git remote add -f github 'git://github.com/drkitty/dotfiles.git'
 	git pull github master
 	git branch -u github/master
 
