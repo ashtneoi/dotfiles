@@ -1,0 +1,44 @@
+# Source this in .bashrc, .zshrc, etc.
+# E.g., `source ~/.shell-commonrc`
+ldot() {
+	ls -AF --group-directories-first $* | grep '^\.'
+}
+
+alias info='/usr/bin/info --vi-keys'
+
+alias l='/bin/ls -AF --group-directories-first'
+alias lc='l --color'
+alias ll='l -l'
+alias llc='ll --color'
+
+alias lsl='/bin/ls -l'
+alias lsc='/bin/ls --color'
+alias lsd='/bin/ls -d */'
+
+
+mana() {
+	man $* 2>/dev/null || whatis $(apropos $* | grep -o '^\S*'$*'\S*')
+}
+
+alias locate='/usr/bin/locate -e'
+
+alias dfm='/bin/df --block-size=1M'
+alias dfg='/bin/df --block-size=1G'
+
+follow() {
+	namei -v $(where $*) | colrm 1 2
+}
+
+alias glhack='/usr/bin/glhack --windowed'
+
+alias sudo='sudo '
+# The space at the end allows alias expansion of the word following 'sudo'
+
+export NETHACKOPTIONS=~/.nethackrc
+#export GLHACKOPTIONS=
+#export SLASHEMOPTIONS=~/.slashemoptions-all
+#export LESS='-MRS --shift=5'
+export LESS='-MR --shift=5'
+export EDITOR=vim
+
+# vim: syntax=sh:
