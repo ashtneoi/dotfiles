@@ -12,12 +12,21 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+
 setPrompt() {
-	local Y=$'%{\e[1;33m%}' #yellow
 	local G=$'%{\e[1;32m%}' #green
+	local Y=$'%{\e[1;33m%}' #yellow
+	local B=$'%{\e[1;34m%}' #blue
 	local P=$'%{\e[1;35m%}' #purple
-	local NC=$'%{\e[0m%}' #no color
-	PS1=$'%(!.'$Y$'%n'$NC$'.'$P$'%n'$NC$')@%m ('$G$'%d'$NC$')%(!.'$Y$'#'$NC$'.'$P$'$'$NC$') '
+	local C=$'%{\e[1;36m%}' #cyan
+	local X=$'%{\e[0m%}' #no color
+
+	#colored username, host, and '$' or '#'
+	PS1=$(print "%(!.$Y%n$X.$P%n$X)@$B%m$X ($G%d$X)%(!.$Y#$X.$P\$$X) ")
+
+	#colored username and '$' or '#'
+	#PS1=$(print "%(!.$Y%n$X@$C%m$X.$P%n$X@$C%m$X) ($G%d$X)%(!.$Y#$X.$P\$$X) ")
+	#PS1=$'%(!.'$Y$'%n'$X$'.'$P$'%n'$X$')@%m ('$G$'%d'$X$')%(!.'$Y$'#'$X$'.'$P$'$'$X$') '
 }
 
 setPrompt
