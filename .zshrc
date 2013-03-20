@@ -12,8 +12,18 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+setPrompt() {
+	local Y=$'%{\e[1;33m%}' #yellow
+	local G=$'%{\e[1;32m%}' #green
+	local P=$'%{\e[1;35m%}' #purple
+	local NC=$'%{\e[0m%}' #no color
+	PS1=$'%(!.'$Y$'%n'$NC$'.'$P$'%n'$NC$')@%m ('$G$'%d'$NC$')%(!.'$Y$'#'$NC$'.'$P$'$'$NC$') '
+}
+
+setPrompt
+
 #colored username and '$' or '#'
-PS1=$'%(!.%{\e[1;33m%}%n%{\e[0m%}.%{\e[1;35m%}%n%{\e[0m%})@%m (%{\e[1;32m%}%d%{\e[0m%})%(!.%{\e[1;33m%}#%{\e[0m%}.%{\e[1;35m%}$%{\e[0m%}) '
+#PS1=$'%(!.%{\e[1;33m%}%n%{\e[0m%}.%{\e[1;35m%}%n%{\e[0m%})@%m (%{\e[1;32m%}%d%{\e[0m%})%(!.%{\e[1;33m%}#%{\e[0m%}.%{\e[1;35m%}$%{\e[0m%}) '
 
 #colored username:
 #PS1=$'%(!.%{\e[1;33m%}%n%{\e[0m%}.%{\e[1;35m%}%n%{\e[0m%})@%m (%{\e[1;32m%}%d%{\e[0m%})%(!.#.$) '
