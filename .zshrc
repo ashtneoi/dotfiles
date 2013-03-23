@@ -50,7 +50,7 @@ if ! echo $path | grep ~ >/dev/null 2>&1; then {
 }; fi
 
 unalias -m "*"
-alias -g '~~= >/dev/null 2>&1 &|'
+alias -g '~~= >/dev/null 2>&1 &!'
 
 __git_files () {
 	_wanted files expl 'local files' _files
