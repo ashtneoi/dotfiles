@@ -2,7 +2,7 @@
 
 if [[ $# != 1 ]]; then exit; fi
 
-one="$1"
+first="$1"
 
 R=$'\e[1;31m' #red
 G=$'\e[1;32m' #green
@@ -21,7 +21,18 @@ if [[ `id -u` == 0 ]]; then {
 
 
 while true; do {
-	echo -n "${G}[first]${X}${sym} ${C}$one${X} "
-	read line
-	$one $line
+	echo -n "${G}[first]${X}${sym} ${C}$first${X} "
+	read -r line
+	if [[ $line == "" ]]; then {
+		echo -n "Just run $first? [yN] "
+		read -n 1 response
+		if [[ $response == 'y' || $response == 'Y' ]]; then {
+			echo
+			$first
+		}; elif [[ $response != "" ]]; then {
+			echo
+		}; fi
+	}; else {
+		$first $line
+	}; fi
 }; done

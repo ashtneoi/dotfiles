@@ -14,6 +14,7 @@ compinit
 
 
 setPrompt() {
+	local R=$'%{\e[1;31m%}' #red
 	local G=$'%{\e[1;32m%}' #green
 	local Y=$'%{\e[1;33m%}' #yellow
 	local B=$'%{\e[1;34m%}' #blue
