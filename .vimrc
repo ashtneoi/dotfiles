@@ -1,14 +1,19 @@
-"highlight WhitespaceEOL ctermbg=red guibg=red
-"match WhitespaceEOL /\s\+$/
 set smartindent
 "set expandtab
+"<Tab> inserts $shiftwidth spaces
 set tabstop=4
 set shiftwidth=4
-set vb t_vb=
+set visualbell t_vb=
+"[sic]
+"Prevent vim from beeping on errors
 set timeoutlen=300
-set lbr
+"Shorten the delay certain key sequences can cause (e.g., <ESC><O>)
+"(The delay has to do with control characters, I think.)
+set linebreak
 set ignorecase smartcase
-"Both must be set for smartcase to work. Why? No idea.
+"Search case-insensitively if pattern contains no capital letters
+"(Both options must be set for smartcase to work. Why? No idea.)
+set showcmd
 
 filetype on
 filetype plugin on
