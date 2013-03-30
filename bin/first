@@ -1,0 +1,27 @@
+#!/bin/bash
+
+if [[ $# != 1 ]]; then exit; fi
+
+one="$1"
+
+R=$'\e[1;31m' #red
+G=$'\e[1;32m' #green
+Y=$'\e[1;33m' #yellow
+B=$'\e[1;34m' #blue
+P=$'\e[1;35m' #purple
+C=$'\e[1;36m' #cyan
+X=$'\e[0m' #no color
+
+
+if [[ `id -u` == 0 ]]; then {
+	sym="$Y#$X"
+}; else {
+	sym="$P\$$X"
+}; fi
+
+
+while true; do {
+	echo -n "${G}[first]${X}${sym} ${C}$one${X} "
+	read line
+	$one $line
+}; done
