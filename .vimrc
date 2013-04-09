@@ -22,7 +22,8 @@ syntax on
 set number
 
 
-command Equal set noequalalways | set equalalways
+"command Equal set noequalalways | set equalalways
+" <C-w => does the same thing
 
 "if !exists("my_autocmds")
 	"let my_autocmds = 1
@@ -30,10 +31,13 @@ command Equal set noequalalways | set equalalways
 	"autocmd ColorScheme * match WhitespaceEOL /\s\+$/
 "endif
 
-augroup my_autocmds
+augroup potato
 	au!
-	call matchadd('Error', '\s\+$')
-	call matchadd('Error', '\%81v.\+', 0)
+	au BufRead * call matchadd('Error', '\s\+$')
+	au BufRead * call matchadd('Error', '\%81v.\+', 0)
 augroup END
+
+let w:created=1
+autocmd WinEnter * if !exists('w:created') | doautocmd potato BufRead | endif
 
 colorscheme elflord
