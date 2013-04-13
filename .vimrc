@@ -1,6 +1,5 @@
 set smartindent
 "set expandtab
-"<Tab> inserts $shiftwidth spaces
 set tabstop=4
 set shiftwidth=4
 set visualbell t_vb=
@@ -31,13 +30,47 @@ set number
 	"autocmd ColorScheme * match WhitespaceEOL /\s\+$/
 "endif
 
-augroup potato
+augroup mysyntax
 	au!
-	au BufRead * call matchadd('Error', '\s\+$')
-	au BufRead * call matchadd('Error', '\%81v.\+', 0)
+	au User * if &filetype != '' | call matchadd('Error', '\s\+$')
+	"au BufRead * if &filetype != '' | call matchadd('Error', '\%81v.\+', 0)
+	au User * if &filetype != '' | call matchadd('Error', '\%>80v', 0)
+	au User * if &filetype != '' | RainbowParenthesesLoadBraces
+	au User * if &filetype != '' | RainbowParenthesesLoadRound
+	"au User * if &filetype != '' | call rainbow_parentheses#activate()
 augroup END
 
+"au BufRead * call matchadd('Keyword', '[{}]')
+
+au VimEnter * if &filetype != '' | RainbowParenthesesLoadBraces
+au VimEnter * if &filetype != '' | RainbowParenthesesLoadRound
+"au VimEnter * if &filetype != '' | RainbowParenthesesToggle
+au VimEnter * if &filetype != '' | call rainbow_parentheses#activate()
+
+
 let w:created=1
-autocmd WinEnter * if !exists('w:created') | doautocmd potato BufRead | endif
+autocmd WinEnter * if !exists('w:created') | let w:created=1 |
+			\ doautocmd mysyntax User | endif
+autocmd BufRead * doautocmd mysyntax User
+autocmd BufNewFile * doautocmd mysyntax User
+
+let g:rbpt_colorpairs = [
+			\ ['darkgreen',   'RoyalBlue3'],
+			\ ['darkcyan',    'SeaGreen3'],
+			\ ['red',         'DarkOrchid3'],
+			\ ['Darkblue',    'firebrick3'],
+			\ ['darkgreen',   'RoyalBlue3'],
+			\ ['darkcyan',    'SeaGreen3'],
+			\ ['red',         'DarkOrchid3'],
+			\ ['darkmagenta', 'firebrick3'],
+			\ ['brown',       'RoyalBlue3'],
+			\ ['gray',        'SeaGreen3'],
+			\ ['darkmagenta', 'DarkOrchid3'],
+			\ ['Darkblue',    'firebrick3'],
+			\ ['darkgreen',   'RoyalBlue3'],
+			\ ['darkcyan',    'SeaGreen3'],
+			\ ['red',     	  'DarkOrchid3'],
+			\ ['gray',        'firebrick3'],
+			\ ]
 
 colorscheme elflord
