@@ -1,0 +1,85 @@
+#!/bin/bash
+yes=0
+no=1
+pingdelay=3
+maxstreak=3
+
+if [[ $# == 1 ]]; then {
+	ssid=$1
+	debug=$no
+}; elif [[ $# == 2 && $1 == '-v' ]]; then {
+	ssid=$2
+	debug=$yes
+}; else {
+	echo 'Usage:  wifi [-v] ssid'
+	echo
+	echo "\t-v\tPass the --debug option to iw so it's more versbose."
+	exit
+}; fi
+
+
+iwversion=$(iw --version)
+echo 'This script parses the output of iw.'
+echo 'It has been verified to work with versions 3.2, 3.6, and 3.8 of iw,'
+echo 'whose output is not considered stable.'
+echo "You appear to have $iwversion."
+if echo -n $iwversion | grep -vP 'version (3\.2|3\.6|3\.8)' >/dev/null 2>&1; then {
+    echo
+	echo 'This script may function incorrectly and could, for all I know,'
+	echo 'destroy your computer and/or the world as we know it.'
+}; fi
+echo ''
+
+myuuid=$(mktemp)
+
+iw dev wlan0 link 2>&1 | grep '^Connected to '; connected=$?
+echo
+while true; do {
+	if [[ $connected != $yes ]]; then {
+		ip link set wlan0 up
+		failed=$yes
+		while [[ $failed == $yes ]]; do {
+			echo ''
+			echo 'Disconnecting....'
+			iw dev wlan0 disconnect >/dev/null 2>&1
+			intime=0
+			sleep .5
+			echo 'Connecting....'
+			if [[ $debug == $yes ]]; then {
+				timeout 5 iw --debug dev wlan0 connect -w "$ssid" 2>&1 | tee "$myuuid"
+				intime=$?
+			}; else {
+				timeout 5 iw dev wlan0 connect -w "$ssid" 2>&1 | tee "$myuuid"
+				intime=$?
+			}; fi
+			grep -i 'failed to connect' "$myuuid" >/dev/null 2>&1; failed=$?
+			if [[ $failed == $yes || $intime != $yes ]]; then { sleep .5; }; fi
+		}; done
+		dhcpcd -k
+		dhcpcd; success=$?
+#		if [[ success == 0 ]]; then {
+#			streak=0
+#		}; else {
+#			streak=$maxstreak
+#		}; fi
+		echo 'dhcpcd exit code: '$success
+		echo ''
+	}; fi
+	
+	streak=0
+	while [[ $streak < $maxstreak ]]; do {
+		echo 'Pinging 8.8.8.8 ....'
+		ping -vc 1 -W 6 8.8.8.8 | grep -i '64 bytes from'; reachable=$?
+		if [[ $reachable != $yes ]]; then {
+			echo 'Failed!';
+			streak=$[$streak + 1];
+		}; else {
+			streak=0;
+		}; fi
+		sleep $pingdelay
+	}; done  #`ping` failed $streak times in a row
+	connected=1 #false
+}; done
+
+
+#iw wlan0 link for info
