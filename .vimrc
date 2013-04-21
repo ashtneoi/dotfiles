@@ -38,7 +38,10 @@ augroup mysyntax
 	au User * if &filetype != '' | call matchadd('Error', '\%>80v', 0)
 	au User * if &filetype != '' | RainbowParenthesesLoadBraces
 	au User * if &filetype != '' | RainbowParenthesesLoadRound
+	"au User * set cinkeys-=0#
 	"au User * if &filetype != '' | call rainbow_parentheses#activate()
+	"for some fucking reason, the following line doesn't do anything
+	"au User * if &filetype == '' | set smartindent
 augroup END
 
 "au BufRead * call matchadd('Keyword', '[{}]')
@@ -47,6 +50,8 @@ au VimEnter * if &filetype != '' | RainbowParenthesesLoadBraces
 au VimEnter * if &filetype != '' | RainbowParenthesesLoadRound
 "au VimEnter * if &filetype != '' | RainbowParenthesesToggle
 au VimEnter * if &filetype != '' | call rainbow_parentheses#activate()
+
+"au BufRead * if &filetype == '' | set smartindent
 
 
 let w:created=1
