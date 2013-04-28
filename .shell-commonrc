@@ -8,8 +8,10 @@ alias info='/usr/bin/info --vi-keys'
 
 alias l='/bin/ls -AF --group-directories-first'
 alias lc='l --color'
+alias lv='l -v'
 alias ll='l -l'
 alias llc='ll --color'
+alias llv='ll -v'
 
 alias lsl='/bin/ls -l'
 alias lsc='/bin/ls --color'
@@ -29,12 +31,17 @@ follow() {
 	namei -v $(where $*) | colrm 1 2
 }
 
-alias glhack='/usr/bin/glhack --windowed'
+if [[ -e /usr/bin/glhack ]] then {
+	alias glhack='/usr/bin/glhack --windowed'
+}; fi
 
 alias sudo='sudo '
 # The space at the end allows alias expansion of the word following 'sudo'
 
-export NETHACKOPTIONS=~/.nethackrc
+if which nethack >/dev/null 2>&1; then {
+	export NETHACKOPTIONS=~/.nethackrc
+}; fi
+
 #export GLHACKOPTIONS=
 #export SLASHEMOPTIONS=~/.slashemoptions-all
 #export LESS='-MRS --shift=5'
