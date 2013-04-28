@@ -33,9 +33,9 @@ set number
 augroup mysyntax
 	au!
 	au User * call matchadd('Error', '\s\+$')
-	"au User * if &filetype != '' | call matchadd('Error', '\%81v.\+', 0)
+	au User * if &filetype != '' | call matchadd('Error', '\%81v.\+', 0)
 	"au User * if &filetype != '' | call matchadd('Error', '\%81v.*', 0)
-	au User * if &filetype != '' | call matchadd('Error', '\%>80v', 0)
+	"au User * if &filetype != '' | call matchadd('Error', '\%>80v', 0)
 	au User * if &filetype != '' | RainbowParenthesesLoadBraces
 	au User * if &filetype != '' | RainbowParenthesesLoadRound
 	"au User * set cinkeys-=0#
