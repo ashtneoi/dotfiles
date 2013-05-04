@@ -27,6 +27,8 @@ alias locate='/usr/bin/locate -e'
 alias dfm='/bin/df --block-size=1M'
 alias dfg='/bin/df --block-size=1G'
 
+alias clock='watch -n .1 date +%T'
+
 follow() {
 	namei -v $(where $*) | colrm 1 2
 }
