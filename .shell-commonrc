@@ -29,6 +29,8 @@ alias dfg='/bin/df --block-size=1G'
 
 alias clock='watch -n .1 date +%T'
 
+alias notes='vim $(date -I)'
+
 follow() {
 	namei -v $(where $*) | colrm 1 2
 }
