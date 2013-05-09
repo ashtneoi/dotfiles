@@ -44,9 +44,9 @@ alias sudo='sudo '
 
 #alias gitrepo="git config --get-regexp 'remote\..*\.url' | awk '{print \$2}'"
 
-if which nethack >/dev/null 2>&1; then {
-	export NETHACKOPTIONS=~/.nethackrc
-}; fi
+#if which nethack >/dev/null 2>&1; then {
+	#export NETHACKOPTIONS=~/.nethackrc
+#}; fi
 
 #export GLHACKOPTIONS=
 #export SLASHEMOPTIONS=~/.slashemoptions-all
