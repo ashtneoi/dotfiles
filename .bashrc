@@ -112,4 +112,8 @@ if ! echo $PATH | grep ~ >/dev/null 2>&1; then {
 	export PATH=$PATH:~/bin
 }; fi
 
+if [[ -e ~/.bashrc-local ]]; then {
+	source ~/.bashrc-local
+}; fi
+
 source ~/.shell-commonrc
