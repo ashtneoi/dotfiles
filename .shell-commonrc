@@ -73,4 +73,8 @@ alias sudo='sudo '
 export LESS='-MR --shift=5'
 export EDITOR=vim
 
+if [[ -e ~/.shell-commonrc-local ]]; then {
+	source ~/.shell-commonrc-local
+}; fi
+
 # vim: syntax=sh:

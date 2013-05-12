@@ -59,7 +59,5 @@ __git_files () {
 
 source ~/.zshrc-keys
 source ~/.shell-commonrc
-if [[ -e ~/.zshrc-local ]]; then {
-	source ~/.zshrc-local
-}; fi
+
 autoload run-help
