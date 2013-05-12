@@ -60,6 +60,11 @@ autocmd WinEnter * if !exists('w:created') | let w:created=1 |
 autocmd BufRead * doautocmd mysyntax User
 autocmd BufNewFile * doautocmd mysyntax User
 
+map <Leader>a <C-w>}
+
+"Courtesy of Zanthrus on Stack Overflow:
+au BufWritePost *.c,*.cpp,*.h silent! !ctags -R &
+
 let g:rbpt_colorpairs = [
 			\ ['darkgreen',   'RoyalBlue3'],
 			\ ['darkcyan',    'SeaGreen3'],
