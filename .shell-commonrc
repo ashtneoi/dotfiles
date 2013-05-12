@@ -33,7 +33,7 @@ alias notes='vim $(date -I)'
 
 follow() {
 	local output
-	output=$(namei -v $(where $*) | colrm 1 2)
+	output=$(namei -v $(which $*) | colrm 1 2)
 	echo $output | head -n 1 | colrm 1 1 | tr -d '\n' && echo :
 	echo
 	echo $output | tail -n +2 | grep -- '->'
