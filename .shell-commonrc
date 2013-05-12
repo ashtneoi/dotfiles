@@ -32,11 +32,26 @@ alias clock='watch -n .1 date +%T'
 alias notes='vim $(date -I)'
 
 follow() {
-	local output
-	output=$(namei -v $(which $*) | colrm 1 2)
-	echo $output | head -n 1 | colrm 1 1 | tr -d '\n' && echo :
-	echo
-	echo $output | tail -n +2 | grep -- '->'
+	if ! which $* >/dev/null 2>&1; then {
+		echo "$0: $1: No such file or file is not in path.";
+	}; else {
+		local output
+		output=$(namei -v $(which $*) 2>/dev/null | colrm 1 2)
+		echo $output | head -n 1 | colrm 1 1 | tr -d '\n' && echo :
+		echo
+		echo $output | tail -n +2 | grep -- '->' || echo "File is not a link."
+	}; fi
+}
+
+# Follow file
+followf() {
+	if ! [[ -e $1 ]]; then {
+		echo "$0: $1: No such file.";
+	}; else {
+		local output
+		output=$(namei -v $* 2>/dev/null | colrm 1 2)
+		echo $output | tail -n +2 | grep -- '->'
+	}; fi
 }
 
 if [[ -e /usr/bin/glhack ]]; then {
