@@ -2,7 +2,6 @@
 
 xset -b
 xmodmap ~/.xmodmaprc
-xsetbg ~/background/background
 
 synclient TapButton2=3
 synclient TapButton3=2
