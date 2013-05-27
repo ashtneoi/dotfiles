@@ -2,16 +2,15 @@ set smartindent
 "set expandtab
 set tabstop=4
 set shiftwidth=4
-set visualbell t_vb=
-"[sic]
-"Prevent vim from beeping on errors
+" Prevent vim from beeping on errors
+set visualbell t_vb=  " sic
+" Shorten the delay certain key sequences can cause (e.g., <ESC><O>)
+" (The delay has to do with control characters, I think.)
 set timeoutlen=300
-"Shorten the delay certain key sequences can cause (e.g., <ESC><O>)
-"(The delay has to do with control characters, I think.)
 set linebreak
+" Search case-insensitively if pattern contains no capital letters
+" (Both options must be set for smartcase to work. Why? No idea.)
 set ignorecase smartcase
-"Search case-insensitively if pattern contains no capital letters
-"(Both options must be set for smartcase to work. Why? No idea.)
 set showcmd
 
 filetype on
@@ -62,8 +61,8 @@ autocmd BufNewFile * doautocmd mysyntax User
 
 map <Leader>a <C-w>}
 
-"Courtesy of Zanthrus on Stack Overflow:
-au BufWritePost *.c,*.cpp,*.h silent! !ctags -R &
+" courtesy of Zanthrus on Stack Overflow:
+"au BufWritePost *.c,*.cpp,*.h silent! !ctags -R >/dev/null 2>&1 &
 
 let g:rbpt_colorpairs = [
 			\ ['darkgreen',   'RoyalBlue3'],
