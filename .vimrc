@@ -1,4 +1,3 @@
-set smartindent
 "set expandtab
 set tabstop=4
 set shiftwidth=4
@@ -19,6 +18,9 @@ filetype indent on
 syntax on
 set number
 
+if &ft == "python"
+	set nosmartindent
+endif
 
 "command Equal set noequalalways | set equalalways
 " <C-w => does the same thing
