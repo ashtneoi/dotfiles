@@ -20,6 +20,8 @@ set number
 
 if &ft == "python"
 	set nosmartindent
+else
+	set smartindent
 endif
 
 "command Equal set noequalalways | set equalalways
