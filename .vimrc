@@ -18,11 +18,10 @@ filetype indent on
 syntax on
 set number
 
-if &ft == "python"
-	set nosmartindent
-else
-	set smartindent
-endif
+"if &ft == "python"
+	"set nosmartindent
+	"echo "nope"
+"endif
 
 "command Equal set noequalalways | set equalalways
 " <C-w => does the same thing
@@ -33,35 +32,49 @@ endif
 	"autocmd ColorScheme * match WhitespaceEOL /\s\+$/
 "endif
 
-augroup mysyntax
+augroup onfileload
 	au!
+	au User * echom "onfileload run"
 	au User * call matchadd('Error', '\s\+$')
-	au User * if &filetype != '' | call matchadd('Error', '\%81v.\+', 0)
+	au User * if &filetype != '' | call matchadd('Error', '\%81v.\+', 0) | endif
+	"au User * endif
 	"au User * if &filetype != '' | call matchadd('Error', '\%81v.*', 0)
 	"au User * if &filetype != '' | call matchadd('Error', '\%>80v', 0)
-	au User * if &filetype != '' | RainbowParenthesesLoadBraces
-	au User * if &filetype != '' | RainbowParenthesesLoadRound
 	"au User * set cinkeys-=0#
-	"au User * if &filetype != '' | call rainbow_parentheses#activate()
-	"for some fucking reason, the following line doesn't do anything
-	"au User * if &filetype == '' | set smartindent
+	"au User * if &filetype != "python" | set smartindent | echom "smartindent"
+	"au User * endif
+	au User * echom "onfileload middle 1"
+	au User * if &filetype == "python" | set nosmartindent |
+				\ echom "nosmartindent"
+	au User * endif
+	au User * echom "onfileload middle 2"
+	"au User * call input("Enter...")
+	"au User * call input("Enter...")
+	"au User * if &filetype != '' | RainbowParenthesesLoadBraces
+	"au User * endif
+	"au User * if &filetype != '' | RainbowParenthesesLoadRound
+	"au User * endif
+	au User * echom "onfileload end"
 augroup END
 
 "au BufRead * call matchadd('Keyword', '[{}]')
 
 au VimEnter * if &filetype != '' | RainbowParenthesesLoadBraces
+au VimEnter * endif
 au VimEnter * if &filetype != '' | RainbowParenthesesLoadRound
+au VimEnter * endif
 "au VimEnter * if &filetype != '' | RainbowParenthesesToggle
-au VimEnter * if &filetype != '' | call rainbow_parentheses#activate()
+au VimEnter * if &filetype != '' | call rainbow_parentheses#activate() | endif
 
 "au BufRead * if &filetype == '' | set smartindent
 
 
 let w:created=1
 autocmd WinEnter * if !exists('w:created') | let w:created=1 |
-			\ doautocmd mysyntax User | endif
-autocmd BufRead * doautocmd mysyntax User
-autocmd BufNewFile * doautocmd mysyntax User
+			\ doautocmd onfileload User | endif
+"autocmd VimEnter * doautocmd BufRead *
+autocmd BufRead * doautocmd onfileload User
+autocmd BufNewFile * doautocmd onfileload User
 
 map <Leader>a <C-w>}
 
