@@ -56,10 +56,10 @@ augroup onfileload
 	au User * echom "onfileload middle 2"
 	"au User * call input("Enter...")
 	"au User * call input("Enter...")
-	"au User * if &filetype != '' | RainbowParenthesesLoadBraces
-	"au User * endif
-	"au User * if &filetype != '' | RainbowParenthesesLoadRound
-	"au User * endif
+	au User * if &filetype != '' | RainbowParenthesesLoadBraces
+	au User * endif
+	au User * if &filetype != '' | RainbowParenthesesLoadRound
+	au User * endif
 	au User * echom "onfileload end"
 augroup END
 
