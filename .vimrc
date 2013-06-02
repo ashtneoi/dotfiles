@@ -40,7 +40,7 @@ set number
 
 augroup onfileload
 	au!
-	au User * echom "onfileload run"
+	"au User * echom "onfileload run"
 	au User * call matchadd('Error', '\s\+$')
 	au User * if &filetype != '' | call matchadd('Error', '\%81v.\+', 0) | endif
 	"au User * endif
@@ -49,28 +49,27 @@ augroup onfileload
 	"au User * set cinkeys-=0#
 	"au User * if &filetype != "python" | set smartindent | echom "smartindent"
 	"au User * endif
-	au User * echom "onfileload middle 1"
 	au User * if &filetype == "python" | set nosmartindent |
 				\ echom "nosmartindent"
 	au User * endif
-	au User * echom "onfileload middle 2"
 	"au User * call input("Enter...")
 	"au User * call input("Enter...")
 	au User * if &filetype != '' | RainbowParenthesesLoadBraces
 	au User * endif
 	au User * if &filetype != '' | RainbowParenthesesLoadRound
 	au User * endif
-	au User * echom "onfileload end"
+	au User * if &filetype != '' | call rainbow_parentheses#activate()
+	au User * endif
 augroup END
 
 "au BufRead * call matchadd('Keyword', '[{}]')
 
-au VimEnter * if &filetype != '' | RainbowParenthesesLoadBraces
-au VimEnter * endif
-au VimEnter * if &filetype != '' | RainbowParenthesesLoadRound
-au VimEnter * endif
-"au VimEnter * if &filetype != '' | RainbowParenthesesToggle
-au VimEnter * if &filetype != '' | call rainbow_parentheses#activate() | endif
+"au VimEnter * if &filetype != '' | RainbowParenthesesLoadBraces
+"au VimEnter * endif
+"au VimEnter * if &filetype != '' | RainbowParenthesesLoadRound
+"au VimEnter * endif
+""au VimEnter * if &filetype != '' | RainbowParenthesesToggle
+"au VimEnter * if &filetype != '' | call rainbow_parentheses#activate() | endif
 
 "au BufRead * if &filetype == '' | set smartindent
 
@@ -78,7 +77,7 @@ au VimEnter * if &filetype != '' | call rainbow_parentheses#activate() | endif
 let w:created=1
 autocmd WinEnter * if !exists('w:created') | let w:created=1 |
 			\ doautocmd onfileload User | endif
-"autocmd VimEnter * doautocmd BufRead *
+autocmd VimEnter * doautocmd onfileload User
 autocmd BufRead * doautocmd onfileload User
 autocmd BufNewFile * doautocmd onfileload User
 
