@@ -12,6 +12,12 @@ set linebreak
 set ignorecase smartcase
 set showcmd
 
+try
+	source ~/.vimrc-local
+catch
+	" ignore it
+endtry
+
 filetype on
 filetype plugin on
 filetype indent on
