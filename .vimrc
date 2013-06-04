@@ -48,9 +48,7 @@ augroup onfileload
 	"au User * if &filetype != '' | call matchadd('Error', '\%81v.*', 0)
 	"au User * if &filetype != '' | call matchadd('Error', '\%>80v', 0)
 	"au User * set cinkeys-=0#
-	au User * if &filetype == "python" | set nosmartindent |
-				\ echom "nosmartindent"
-	au User * endif
+	au User * if &filetype == "python" | set nosmartindent | endif
 	au User * if &filetype != '' | RainbowParenthesesLoadBraces
 	au User * endif
 	au User * if &filetype != '' | RainbowParenthesesLoadRound
