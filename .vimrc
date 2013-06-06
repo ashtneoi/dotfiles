@@ -44,8 +44,7 @@ fu! Onfileload()
 	endif
 	let w:created=1
 
-	"au User * echom "onfileload run"
-	echom 'Onfileload()'
+	"echom 'Onfileload()'
 	call matchadd('Error', '\s\+$')
 	if &filetype != '' && &filetype != 'markdown' && &filetype != 'netrw'
 		call matchadd('Error', '\%81v.\+', 0)
@@ -58,6 +57,10 @@ fu! Onfileload()
 		RainbowParenthesesLoadBraces
 		RainbowParenthesesLoadRound
 		call rainbow_parentheses#activate()
+	endif
+
+	if exists('*Onfileload_local')
+		call Onfileload_local()
 	endif
 endf
 
