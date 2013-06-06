@@ -3,7 +3,6 @@
 xset -b
 xmodmap ~/.xmodmaprc
 
-synclient TapButton2=3
-synclient TapButton3=2
-synclient HorizEdgeScroll=1
-#synclient HorizTwoFingerScroll=1
+if [[ -e ~/.xinitrc-setup-local ]]; then
+	source ~/.xinitrc-setup-local
+fi
