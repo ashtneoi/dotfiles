@@ -38,24 +38,22 @@ set number
 	"autocmd ColorScheme * match WhitespaceEOL /\s\+$/
 "endif
 
-augroup onfileload
-	au!
+fu! Onfileload()
 	"au User * echom "onfileload run"
-	au User * call matchadd('Error', '\s\+$')
-	au User * if &filetype != '' && &filetype != 'markdown' |
+	call matchadd('Error', '\s\+$')
+	if &filetype != '' && &filetype != 'markdown' |
 				\ call matchadd('Error', '\%81v.\+', 0) | endif
-	"au User * endif
-	"au User * if &filetype != '' | call matchadd('Error', '\%81v.*', 0)
-	"au User * if &filetype != '' | call matchadd('Error', '\%>80v', 0)
-	"au User * set cinkeys-=0#
-	au User * if &filetype == "python" | set nosmartindent | endif
-	au User * if &filetype != '' | RainbowParenthesesLoadBraces
-	au User * endif
-	au User * if &filetype != '' | RainbowParenthesesLoadRound
-	au User * endif
-	au User * if &filetype != '' | call rainbow_parentheses#activate()
-	au User * endif
-augroup END
+	"endif
+	"if &filetype != '' | call matchadd('Error', '\%81v.*', 0)
+	"if &filetype != '' | call matchadd('Error', '\%>80v', 0)
+	"set cinkeys-=0#
+	if &filetype == "python" | set nosmartindent | endif
+	if &filetype != '' && &filetype != 'htmldjango'
+		RainbowParenthesesLoadBraces
+		RainbowParenthesesLoadRound
+		call rainbow_parentheses#activate()
+	endif
+endf
 
 try
 	source ~/.vimrc-local-autocmd
@@ -67,10 +65,10 @@ endtry
 
 let w:created=1
 autocmd WinEnter * if !exists('w:created') | let w:created=1 |
-			\ doautocmd onfileload User | endif
-autocmd VimEnter * doautocmd onfileload User
-autocmd BufRead * doautocmd onfileload User
-autocmd BufNewFile * doautocmd onfileload User
+			\ call Onfileload() | endif
+autocmd VimEnter * call Onfileload()
+autocmd BufRead * call Onfileload()
+autocmd BufNewFile * call Onfileload()
 
 map <Leader>a <C-w>}
 
