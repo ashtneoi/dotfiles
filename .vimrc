@@ -39,11 +39,17 @@ set number
 "endif
 
 fu! Onfileload()
+	if exists('w:created')
+		return
+	endif
+	let w:created=1
+
 	"au User * echom "onfileload run"
+	echom 'Onfileload()'
 	call matchadd('Error', '\s\+$')
-	if &filetype != '' && &filetype != 'markdown' |
-				\ call matchadd('Error', '\%81v.\+', 0) | endif
-	"endif
+	if &filetype != '' && &filetype != 'markdown' && &filetype != 'netrw'
+		call matchadd('Error', '\%81v.\+', 0)
+	endif
 	"if &filetype != '' | call matchadd('Error', '\%81v.*', 0)
 	"if &filetype != '' | call matchadd('Error', '\%>80v', 0)
 	"set cinkeys-=0#
@@ -63,9 +69,7 @@ endtry
 
 "au BufRead * call matchadd('Keyword', '[{}]')
 
-let w:created=1
-autocmd WinEnter * if !exists('w:created') | let w:created=1 |
-			\ call Onfileload() | endif
+autocmd WinEnter * call Onfileload()
 autocmd VimEnter * call Onfileload()
 autocmd BufRead * call Onfileload()
 autocmd BufNewFile * call Onfileload()
