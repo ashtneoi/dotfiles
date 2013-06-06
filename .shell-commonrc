@@ -81,4 +81,6 @@ if [[ -e ~/.shell-commonrc-local ]]; then {
 
 date --rfc-3339=ns >>~/shell-times
 
+TERM=xterm-256color
+
 # vim: syntax=sh:
