@@ -1,0 +1,7 @@
+[push]
+	default = simple
+[user]
+	name = drkitty
+	email = bumblingkitty@gmail.com
+[color]
+	ui = true
