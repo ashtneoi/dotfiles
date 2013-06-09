@@ -50,6 +50,12 @@ if ! echo $path | grep ~ >/dev/null 2>&1; then {
 	export path
 }; fi
 
+if [[ -e /usr/bin/site_perl ]] && \
+		! echo $path | grep /usr/bin/site_perl >/dev/null 2>&1; then {
+	path+=(/usr/bin/site_perl)
+	export path
+}; fi
+
 unalias -m "*"
 alias -g '~~= >/dev/null 2>&1 &!'
 
