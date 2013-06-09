@@ -11,6 +11,7 @@ set linebreak
 " (Both options must be set for smartcase to work. Why? No idea.)
 set ignorecase smartcase
 set showcmd
+set laststatus=2
 
 try
 	source ~/.vimrc-local
