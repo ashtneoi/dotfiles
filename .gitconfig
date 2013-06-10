@@ -5,3 +5,5 @@
 	email = bumblingkitty@gmail.com
 [color]
 	ui = true
+[diff]
+	tool = meld
