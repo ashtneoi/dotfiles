@@ -42,8 +42,10 @@ set number
 fu! Onfileload()
 	"au User * echom "onfileload run"
 	call matchadd('Error', '\s\+$')
-	if &filetype != '' && &filetype != 'markdown' |
-				\ call matchadd('Error', '\%81v.\+', 0) | endif
+	if &filetype != '' && &filetype != 'markdown' && &filetype != 'html' &&
+				\ &filetype != 'htmldjango'
+		call matchadd('Error', '\%81v.\+', 0)
+	endif
 	"endif
 	"if &filetype != '' | call matchadd('Error', '\%81v.*', 0)
 	"if &filetype != '' | call matchadd('Error', '\%>80v', 0)
