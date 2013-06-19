@@ -102,3 +102,6 @@ let g:rbpt_colorpairs = [
 			\ ]
 
 colorscheme elflord
+
+set exrc
+set secure
