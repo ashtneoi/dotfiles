@@ -44,13 +44,18 @@ fu! Onfileload()
 	call matchadd('Error', '\s\+$')
 	if &filetype != '' && &filetype != 'markdown' && &filetype != 'html' &&
 				\ &filetype != 'htmldjango'
-		call matchadd('Error', '\%81v.\+', 0)
+        " max 79 chars per line
+		call matchadd('Error', '\%80v.\+', 0)
 	endif
 	"endif
 	"if &filetype != '' | call matchadd('Error', '\%81v.*', 0)
 	"if &filetype != '' | call matchadd('Error', '\%>80v', 0)
 	"set cinkeys-=0#
-	if &filetype == "python" | set nosmartindent | endif
+	if &filetype == "python"
+		set nosmartindent
+		"set indentkeys-=<:>
+		"set indentkeys-=:
+	endif
 	if &filetype != '' && &filetype != 'htmldjango'
 		RainbowParenthesesLoadBraces
 		RainbowParenthesesLoadRound
