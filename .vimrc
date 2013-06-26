@@ -59,6 +59,7 @@ fu! Onfileload()
 	if &filetype != '' && &filetype != 'htmldjango'
 		RainbowParenthesesLoadBraces
 		RainbowParenthesesLoadRound
+		RainbowParenthesesLoadSquare
 		call rainbow_parentheses#activate()
 	endif
 
