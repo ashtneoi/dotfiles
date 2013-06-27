@@ -55,6 +55,8 @@ fu! Onfileload()
 		set nosmartindent
 		"set indentkeys-=<:>
 		"set indentkeys-=:
+		set foldmethod=indent
+		%foldo
 	endif
 	if &filetype != '' && &filetype != 'htmldjango'
 		RainbowParenthesesLoadBraces
@@ -83,7 +85,9 @@ autocmd VimEnter * call Onfileload()
 autocmd BufRead * call Onfileload()
 autocmd BufNewFile * call Onfileload()
 
-map <Leader>a <C-w>}
+"map <Leader>a <C-w>}
+map <Leader>O :%foldc<Enter>
+map <Leader>o :%foldo<Enter>
 
 " courtesy of Zanthrus on Stack Overflow:
 "au BufWritePost *.c,*.cpp,*.h silent! !ctags -R >/dev/null 2>&1 &
