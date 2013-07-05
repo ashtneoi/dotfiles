@@ -56,7 +56,7 @@ fu! Onfileload()
 		"set indentkeys-=<:>
 		"set indentkeys-=:
 		set foldmethod=indent
-		%foldo
+		normal zR
 	endif
 	if &filetype != '' && &filetype != 'htmldjango'
 		RainbowParenthesesLoadBraces
