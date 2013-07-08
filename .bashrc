@@ -53,23 +53,19 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 # >>>>>>PROMPTS GO HERE<<<<<<
-if [ "$color_prompt" = yes ]; then
-	#PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-	PS1=$'<bash> \u@\h (\[\e[1;32m\]\w\[\e[0m\])\$ '
-else
-	#PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-	PS1=$'<bash> \u@\h (\w)\$ '
-fi
-unset color_prompt force_color_prompt
 
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-	PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-	;;
-*)
-	;;
-esac
+setPrompt() {
+	local R=$'\[\e[1;31m\]' #red
+	local G=$'\[\e[1;32m\]' #green
+	local Y=$'\[\e[1;33m\]' #yellow
+	local B=$'\[\e[1;34m\]' #blue
+	local P=$'\[\e[1;35m\]' #purple
+	local C=$'\[\e[1;36m\]' #cyan
+	local X=$'\[\e[0m\]' #no color
+	PS1="(b) ${P}\u${X}@${B}\h${X} (${G}\w${X})${P}\$${X} "
+}
+
+setPrompt
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
