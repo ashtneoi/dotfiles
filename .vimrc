@@ -71,6 +71,9 @@ fu! Onfileload()
 	if exists('*Onfileload_local')
 		call Onfileload_local()
 	endif
+	if exists('*Onfileload_exrc')
+		call Onfileload_exrc()
+	endif
 endf
 
 try
