@@ -40,7 +40,7 @@ set number
 "endif
 
 fu! Onfileload()
-	set indentkeys=
+	set indentkeys=o,O
 	"au User * echom "onfileload run"
 	call matchadd('Error', '\s\+$')
 	if &filetype != '' && &filetype != 'markdown' && &filetype != 'html' &&
