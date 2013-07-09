@@ -45,7 +45,7 @@ setopt brace_ccl interactivecomments
 #brace_ccl = brace character class; e.g., "{a-c,e}" expands to "a b c e"
 unsetopt auto_remove_slash
 
-if ! echo $path | grep ~ >/dev/null 2>&1; then {
+if ! echo $path | grep ~/bin >/dev/null 2>&1; then {
 	path+=(~/bin)
 	export path
 }; fi
