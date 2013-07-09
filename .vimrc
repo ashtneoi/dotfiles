@@ -40,7 +40,9 @@ set number
 "endif
 
 fu! Onfileload()
-	set indentkeys=o,O
+	if &filetype != 'vim'
+		set indentkeys=o,O
+	endif
 	"au User * echom "onfileload run"
 	call matchadd('Error', '\s\+$')
 	if &filetype != '' && &filetype != 'markdown' && &filetype != 'html' &&
