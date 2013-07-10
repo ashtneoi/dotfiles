@@ -42,6 +42,9 @@ set number
 "endif
 
 fu! Onfileload()
+	if &filetype == ''
+		set smartindent
+	endif
 	if &filetype != 'vim'
 		set indentkeys=o,O
 	endif
