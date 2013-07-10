@@ -13,6 +13,8 @@ set ignorecase smartcase
 set showcmd
 set laststatus=2
 
+let g:loaded_matchparen=1
+
 try
 	source ~/.vimrc-local
 catch
