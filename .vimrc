@@ -90,12 +90,15 @@ endtry
 
 "au BufRead * call matchadd('Keyword', '[{}]')
 
-let w:created=1
-autocmd WinEnter * if !exists('w:created') | let w:created=1 |
-			\ call Onfileload() | endif
-autocmd VimEnter * call Onfileload()
-autocmd BufRead * call Onfileload()
-autocmd BufNewFile * call Onfileload()
+autocmd Syntax * call Onfileload()
+" That autocmd replaces this {
+"let w:created=1
+"autocmd WinEnter * if !exists('w:created') | let w:created=1 |
+			"\ call Onfileload() | endif
+"autocmd VimEnter * call Onfileload()
+"autocmd BufRead * call Onfileload()
+"autocmd BufNewFile * call Onfileload()
+" } and is also better.
 
 "map <Leader>a <C-w>}
 map <Leader>O :%foldc<Enter>
