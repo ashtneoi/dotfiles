@@ -66,6 +66,7 @@ fu! Onfileload()
 		set foldmethod=indent
 		set expandtab
 	endif
+	normal zR
 	if &filetype != '' && &filetype != 'htmldjango'
 		RainbowParenthesesLoadBraces
 		RainbowParenthesesLoadRound
