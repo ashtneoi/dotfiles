@@ -64,7 +64,7 @@ fu! Onfileload()
 		"set indentkeys-=<:>
 		"set indentkeys-=:
 		set foldmethod=indent
-		normal zR
+		set expandtab
 	endif
 	if &filetype != '' && &filetype != 'htmldjango'
 		RainbowParenthesesLoadBraces
