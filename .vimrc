@@ -108,23 +108,23 @@ map <Leader>o :%foldo<Enter>
 "au BufWritePost *.c,*.cpp,*.h silent! !ctags -R >/dev/null 2>&1 &
 
 let g:rbpt_colorpairs = [
-			\ ['darkgreen',   'RoyalBlue3'],
-			\ ['darkcyan',    'SeaGreen3'],
-			\ ['red',         'DarkOrchid3'],
-			\ ['Darkblue',    'firebrick3'],
-			\ ['darkgreen',   'RoyalBlue3'],
-			\ ['darkcyan',    'SeaGreen3'],
-			\ ['red',         'DarkOrchid3'],
-			\ ['darkmagenta', 'firebrick3'],
-			\ ['brown',       'RoyalBlue3'],
-			\ ['gray',        'SeaGreen3'],
-			\ ['darkmagenta', 'DarkOrchid3'],
-			\ ['Darkblue',    'firebrick3'],
-			\ ['darkgreen',   'RoyalBlue3'],
-			\ ['darkcyan',    'SeaGreen3'],
-			\ ['red',     	  'DarkOrchid3'],
-			\ ['gray',        'firebrick3'],
-			\ ]
+		\ ['darkgreen',   'RoyalBlue3'],
+		\ ['darkcyan',    'SeaGreen3'],
+		\ ['red',         'DarkOrchid3'],
+		\ ['Darkblue',    'firebrick3'],
+		\ ['darkgreen',   'RoyalBlue3'],
+		\ ['darkcyan',    'SeaGreen3'],
+		\ ['red',         'DarkOrchid3'],
+		\ ['darkmagenta', 'firebrick3'],
+		\ ['brown',       'RoyalBlue3'],
+		\ ['gray',        'SeaGreen3'],
+		\ ['darkmagenta', 'DarkOrchid3'],
+		\ ['Darkblue',    'firebrick3'],
+		\ ['darkgreen',   'RoyalBlue3'],
+		\ ['darkcyan',    'SeaGreen3'],
+		\ ['red',     	  'DarkOrchid3'],
+		\ ['gray',        'firebrick3'],
+\ ]
 
 colorscheme elflord
 
