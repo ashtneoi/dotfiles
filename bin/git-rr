@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [[ -z "$2" ]]; then
+	other=ORIG_HEAD
+else
+	other=$2
+fi
+
+git diff-tree --no-commit-id --name-only -r $1 HEAD \
+	| xargs -I {} bash -c "echo {}; diff <(git show :{}) <(git show ${other}:{}); echo"
