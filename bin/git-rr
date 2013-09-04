@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [[ -z "$1" ]]; then
+	echo -e 'Usage:'
+	echo -e '\tgit rr common_ancestor [old]'
+fi
+
 if [[ -z "$2" ]]; then
 	other=ORIG_HEAD
 else
