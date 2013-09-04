@@ -76,6 +76,7 @@ alias sudo='sudo '
 #export LESS='-MRS --shift=5'
 export LESS='-MR --shift=5'
 export EDITOR=vim
+export PAGER=less
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 if [[ -e ~/.shell-commonrc-local ]]; then {
