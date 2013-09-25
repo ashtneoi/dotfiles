@@ -42,16 +42,21 @@ set number
 "endif
 
 fu! Onfileload()
-	if &filetype == ''
+	if &filetype == '' || &filetype == 'text'
 		set smartindent
+		call clearmatches()
 	endif
 	if &filetype != 'vim'
 		set indentkeys=o,O
+		if &filetype != '' && &filetype != 'text'
+			set indentkeys+=e,:
+		endif
 	endif
 	"au User * echom "onfileload run"
 	call matchadd('Error', '\s\+$')
 	if &filetype != '' && &filetype != 'markdown' && &filetype != 'html' &&
-				\ &filetype != 'htmldjango'
+				\ &filetype != 'htmldjango' && &filetype != 'gitconfig' &&
+				\ &filetype != 'text'
         " max 79 chars per line
 		call matchadd('Error', '\%80v.\+', 0)
 	endif
@@ -67,7 +72,7 @@ fu! Onfileload()
 		set expandtab
 	endif
 	normal zR
-	if &filetype != '' && &filetype != 'htmldjango'
+	if &filetype != '' && &filetype != 'text' && &filetype != 'htmldjango'
 		RainbowParenthesesLoadBraces
 		RainbowParenthesesLoadRound
 		RainbowParenthesesLoadSquare
