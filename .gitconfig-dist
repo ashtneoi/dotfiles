@@ -1,9 +1,17 @@
 [push]
 	default = simple
 [user]
-	name = drkitty
-	email = bumblingkitty@gmail.com
+	name = NAME
+	email = EMAIL
 [color]
 	ui = true
 [diff]
 	tool = meld
+[alias]
+	# Courtesy of Andrew Berry; seen on http://www.lullabot.com/blog/article/handling-git-pull-automatic-merges
+	lg = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ci) %C(bold blue)<%an>%Creset' --abbrev-commit
+	s = status -bs -uno
+	sl = status -b -uno
+	up = !git checkout master && git pull --ff-only upstream master
+[merge]
+	conflictstyle = diff3
