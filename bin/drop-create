@@ -3,7 +3,7 @@
 if [[ $# != 2 ]]; then
 	echo -e 'Usage:'
 	echo -e '\tdrop-create user database'
-	exit 127
+	exit 2
 fi
 
 mysqladmin -u $1 drop $2 create $2
