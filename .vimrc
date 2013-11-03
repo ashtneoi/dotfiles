@@ -64,6 +64,12 @@ fu! Onfileload()
 	"if &filetype != '' | call matchadd('Error', '\%81v.*', 0)
 	"if &filetype != '' | call matchadd('Error', '\%>80v', 0)
 	"set cinkeys-=0#
+
+	if &filetype == "c" || &filetype == "cpp"
+		set cinkeys-=:
+		set indentkeys-=:
+	endif
+
 	if &filetype == "python"
 		set nosmartindent
 		"set indentkeys-=<:>
@@ -72,6 +78,7 @@ fu! Onfileload()
 		set expandtab
 	endif
 	normal zR
+
 	if &filetype != '' && &filetype != 'text' && &filetype != 'htmldjango'
 		RainbowParenthesesLoadBraces
 		RainbowParenthesesLoadRound
