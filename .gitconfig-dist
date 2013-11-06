@@ -8,6 +8,7 @@
 [diff]
 	tool = meld
 [alias]
+	conflicts = diff --name-only --diff-filter=U
 	h = rev-parse HEAD
 	# Courtesy of Andrew Berry; seen on http://www.lullabot.com/blog/article/handling-git-pull-automatic-merges
 	lg = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ci) %C(bold blue)<%an>%Creset' --abbrev-commit
