@@ -1,6 +1,5 @@
-"set expandtab
 set tabstop=4
-set shiftwidth=4
+set shiftwidth=0
 " Prevent vim from beeping on errors
 set visualbell t_vb=  " sic
 " Shorten the delay certain key sequences can cause (e.g., <ESC><O>)
@@ -65,7 +64,12 @@ fu! Onfileload()
 	"if &filetype != '' | call matchadd('Error', '\%>80v', 0)
 	"set cinkeys-=0#
 
-	if &filetype == "c" || &filetype == "cpp"
+
+	if &filetype == 'htmldjango'
+		set expandtab
+	endif
+
+	if &filetype == "c" || &filetype == "cpp" || &filetype == "python"
 		set cinkeys-=:
 		set indentkeys-=:
 	endif
