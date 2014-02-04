@@ -11,6 +11,7 @@ set linebreak
 set ignorecase smartcase
 set showcmd
 set laststatus=2
+set nohlsearch
 
 let g:loaded_matchparen=1
 
