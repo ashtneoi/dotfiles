@@ -43,7 +43,7 @@ set number
 
 fu! Onfileload()
 	if &filetype == '' || &filetype == 'text'
-		set smartindent
+		set autoindent
 		call clearmatches()
 	endif
 	if &filetype != 'vim'
@@ -52,8 +52,6 @@ fu! Onfileload()
 			set indentkeys+=e,:
 		endif
 	endif
-	"au User * echom "onfileload run"
-	call matchadd('Error', '\s\+$')
 	if &filetype != '' && &filetype != 'markdown' && &filetype != 'html' &&
 				\ &filetype != 'htmldjango' && &filetype != 'gitconfig' &&
 				\ &filetype != 'text'
@@ -66,7 +64,8 @@ fu! Onfileload()
 	"set cinkeys-=0#
 
 
-	if &filetype == 'htmldjango'
+	if &filetype == 'html' || &filetype == 'htmldjango' ||
+			\ &filetype == 'javascript'
 		set expandtab
 	endif
 
@@ -90,6 +89,12 @@ fu! Onfileload()
 		RainbowParenthesesLoadSquare
 		call rainbow_parentheses#activate()
 	endif
+
+	if &filetype == 'asm' || &filetype == 'masm'
+		set expandtab
+	endif
+
+	call matchadd('Error', '\s\+$')
 
 	if exists('*Onfileload_local')
 		call Onfileload_local()
