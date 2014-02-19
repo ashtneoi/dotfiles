@@ -10,7 +10,6 @@ ldot() {
 alias l='/bin/ls -AFv --group-directories-first'
 alias lc='l --color'
 alias ll='l -l'
-alias llc='ll --color'
 alias llv='ll -v'
 
 alias ls='/bin/ls -v'
