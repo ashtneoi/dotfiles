@@ -54,9 +54,12 @@ fu! Onfileload()
 	endif
 	if &filetype != '' && &filetype != 'markdown' && &filetype != 'html' &&
 				\ &filetype != 'htmldjango' && &filetype != 'gitconfig' &&
-				\ &filetype != 'text'
+				\ &filetype != 'text' && &filetype != 'tex'
         " max 79 chars per line
 		call matchadd('Error', '\%80v.\+', 0)
+	endif
+	if &filetype == 'css'
+		set autoindent
 	endif
 	"endif
 	"if &filetype != '' | call matchadd('Error', '\%81v.*', 0)
@@ -65,7 +68,7 @@ fu! Onfileload()
 
 
 	if &filetype == 'html' || &filetype == 'htmldjango' ||
-			\ &filetype == 'javascript'
+			\ &filetype == 'javascript' || &filetype == 'css'
 		set expandtab
 	endif
 
@@ -92,6 +95,7 @@ fu! Onfileload()
 
 	if &filetype == 'asm' || &filetype == 'masm'
 		set expandtab
+		set autoindent
 	endif
 
 	call matchadd('Error', '\s\+$')
