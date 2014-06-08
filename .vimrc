@@ -93,7 +93,7 @@ fu! Onfileload()
 		call rainbow_parentheses#activate()
 	endif
 
-	if &filetype == 'asm' || &filetype == 'masm'
+	if &filetype == 'asm' || &filetype == 'masm' || &filetype == 'sql'
 		set expandtab
 		set autoindent
 	endif
