@@ -22,8 +22,6 @@ mana() {
 	man $* 2>/dev/null || whatis $(apropos $* | grep -o '^\S*'$*'\S*')
 }
 
-alias locate='/usr/bin/locate -e'
-
 alias dfm='/bin/df --block-size=1M'
 alias dfg='/bin/df --block-size=1G'
 
