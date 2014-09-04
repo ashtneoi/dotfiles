@@ -6,4 +6,5 @@ file_list = {
     '.xmodmaprc': '~',
     '.zshrc': '~',
     '.zshrc-keys': '~',
+    'cfg_notion.lua': '~/.notion/',
 }
