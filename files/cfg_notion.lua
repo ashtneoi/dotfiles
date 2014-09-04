@@ -86,6 +86,7 @@ defbindings("WMPlex", {
 defbindings("WMPlex.toplevel", {
     kpress(META.."slash", "notioncore.exec_on(_, 'x-terminal-emulator')"),
     kpress(META.."space", "mod_query.query_exec(_)"),
+    kpress(META.."BackSpace", "ioncore.exec('slock')"),
 })
 
 defmenu("sessionmenu", {
