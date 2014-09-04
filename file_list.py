@@ -7,4 +7,10 @@ file_list = {
     '.zshrc': '~',
     '.zshrc-keys': '~',
     'cfg_notion.lua': '~/.notion/',
+    'django-drop-create': '~/bin/',
+    'drop-create': '~/bin/',
+    'first': '~/bin/',
+    'git-rr': '~/bin/',
+    'ns': '~/bin/',
+    'nse': '~/bin/',
 }
