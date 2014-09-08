@@ -16,7 +16,7 @@
 	lg2 = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ci) %C(bold blue)<%an>%Creset' --abbrev-commit
 	s = status -bs -uno
 	sl = status -b -uno
-	untracked = ls-files --other --exclude-standard --directory
+	untracked = ls-files --others --exclude-standard --directory
 	up = !git checkout master && git pull --ff-only upstream master
 [merge]
 	conflictstyle = diff3
