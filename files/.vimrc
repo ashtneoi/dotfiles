@@ -27,6 +27,8 @@ filetype indent on
 syntax on
 set number
 
+nnoremap - "_
+
 "if &ft == "python"
 	"set nosmartindent
 	"echo "nope"
