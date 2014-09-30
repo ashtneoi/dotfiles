@@ -17,7 +17,7 @@ def main(dry_run):
             os.makedirs(directory)
         target = path.relpath(name, directory)
         link_name = path.abspath(path.join(directory, name))
-        stdout.write('{} --> {}\n'.format(target, link_name))
+        stdout.write('{} --> {}\n'.format(link_name, target))
         if not dry_run:
             try:
                 os.symlink(target, link_name)
