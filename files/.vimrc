@@ -13,6 +13,10 @@ set showcmd
 set laststatus=2
 set nohlsearch
 
+let g:pyindent_open_paren = '&ts'
+let g:pyindent_nested_paren = '&ts'
+let g:pyindent_continue = '&ts * 2'
+
 let g:loaded_matchparen=1
 
 try
