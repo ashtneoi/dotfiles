@@ -31,7 +31,7 @@ filetype indent on
 syntax on
 set number
 
-nnoremap - "_
+noremap - "_
 
 "if &ft == "python"
 	"set nosmartindent
