@@ -81,6 +81,7 @@ fu! Onfileload()
 	if &filetype == "c" || &filetype == "cpp" || &filetype == "python"
 		set cinkeys-=:
 		set indentkeys-=:
+		set expandtab
 	endif
 
 	if &filetype == "python"
