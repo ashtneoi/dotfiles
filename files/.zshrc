@@ -63,6 +63,8 @@ __git_files () {
 	_wanted files expl 'local files' _files
 }
 
+alias re='source ~/ros/devel/setup.zsh'
+
 source ~/.zshrc-keys
 source ~/.shell-commonrc
 
