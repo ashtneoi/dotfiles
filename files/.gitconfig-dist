@@ -10,6 +10,7 @@
 [diff]
 	tool = meld
 [alias]
+	br = "!f() { git branch --list -r $1/'*'; }; f"
 	co = checkout
 	conflicts = diff --name-only --diff-filter=U
 	h = rev-parse HEAD
