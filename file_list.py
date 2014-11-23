@@ -1,5 +1,6 @@
 file_list = {
     '.bashrc': '~',
+    '.less': '~',
     '.Rprofile': '~',
     '.shell-commonrc': '~',
     '.vimrc': '~',
