@@ -17,14 +17,14 @@ def main(dry_run):
             os.makedirs(directory)
         target = path.relpath(name, directory)
         link_name = path.abspath(path.join(directory, name))
-        stdout.write('{} --> {}\n'.format(link_name, target))
+        stdout.write('{0} --> {1}\n'.format(link_name, target))
         if not dry_run:
             try:
                 os.symlink(target, link_name)
             except OSError as e:
                 if e.errno != 17:  # File exists
                     raise
-                stderr.write('WARNING: {} exists\n'.format(link_name))
+                stderr.write('WARNING: {0} exists\n'.format(link_name))
 
 
 if __name__ == '__main__':
