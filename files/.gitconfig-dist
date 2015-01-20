@@ -21,6 +21,6 @@
 	sl = status -b -uno
 	temp = !git commit -am 'temp '$(date -Is)
 	untracked = ls-files --others --exclude-standard --directory
-	up = !git fetch origin && git checkout master && git pull --ff-only upstream master
+	up = !git fetch --multiple origin upstream && git checkout master && git merge --ff-only upstream/master
 [merge]
 	conflictstyle = diff3
