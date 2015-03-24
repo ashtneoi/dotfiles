@@ -85,6 +85,10 @@ defbindings("WMPlex", {
 
 defbindings("WMPlex.toplevel", {
     kpress(META.."slash", "notioncore.exec_on(_, 'x-terminal-emulator')"),
+	kpress("XF86AudioRaiseVolume",
+		"notioncore.exec_on(_, 'amixer -M set Master 2%+')"),
+	kpress("XF86AudioLowerVolume",
+		"notioncore.exec_on(_, 'amixer -M set Master 2%-')"),
     kpress(META.."space", "mod_query.query_exec(_)"),
     kpress(META.."BackSpace", "ioncore.exec('slock')"),
 })
