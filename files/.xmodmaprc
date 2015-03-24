@@ -16,3 +16,4 @@ add lock = Caps_Lock
 !pointer = 1 3 2
 
 keycode 127 = Multi_key NoSymbol Multi_key
+keycode 135 = Super_R NoSymbol Super_R
