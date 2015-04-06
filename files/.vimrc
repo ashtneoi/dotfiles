@@ -1,5 +1,5 @@
 set tabstop=4
-set shiftwidth=0
+let &shiftwidth=&tabstop
 " Prevent vim from beeping on errors
 set visualbell t_vb=  " sic
 " Shorten the delay certain key sequences can cause (e.g., <ESC><O>)
