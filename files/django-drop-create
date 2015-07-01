@@ -11,6 +11,6 @@ fi
 charset='DEFAULT CHARACTER SET = ascii'
 collation='DEFAULT COLLATE = ascii_general_ci'
 
-mysqladmin -f -u $1 drop $2 || true
+mysqladmin -u $1 drop $2 || true
 mysql -u $1 -e "CREATE DATABASE $2 $charset $collation" \
 	&& yes no | ./manage.py syncdb && ./manage.py migrate
