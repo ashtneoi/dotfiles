@@ -4,6 +4,7 @@ ALTMETA=""
 dopath("mod_tiling")
 dopath("mod_menu")
 dopath("mod_query")
+dopath("mod_statusbar")
 
 ioncore.deflayout("single-frame", {
     managed = {
@@ -86,9 +87,9 @@ defbindings("WMPlex", {
 defbindings("WMPlex.toplevel", {
     kpress(META.."slash", "notioncore.exec_on(_, 'x-terminal-emulator')"),
 	kpress("XF86AudioRaiseVolume",
-		"notioncore.exec_on(_, 'amixer -M set Master 2%+')"),
+		"notioncore.exec_on(_, 'amixer -M set Master 2%+ >/dev/null')"),
 	kpress("XF86AudioLowerVolume",
-		"notioncore.exec_on(_, 'amixer -M set Master 2%-')"),
+		"notioncore.exec_on(_, 'amixer -M set Master 2%- >/dev/null')"),
     kpress(META.."space", "mod_query.query_exec(_)"),
     kpress(META.."BackSpace", "ioncore.exec('slock')"),
 })
