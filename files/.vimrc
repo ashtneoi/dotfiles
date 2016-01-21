@@ -1,168 +1,97 @@
-set tabstop=4
-let &shiftwidth=&tabstop
-" Prevent vim from beeping on errors
-set visualbell t_vb=  " sic
-" Shorten the delay certain key sequences can cause (e.g., <ESC><O>)
+set nocompatible
+
+if exists("g:did_vimrc")
+    finish
+endif
+let g:did_vimrc = 1
+
+set runtimepath=~/.vim,/usr/share/vim/vim74
+if exists("localrtp")
+    let &runtimepath .= ',' . localrtp
+endif
+
+
+" Enable syntax highlighting and automatic indentation.
+filetype on
+filetype plugin on
+syntax on
+
+
+" Disable per-directory vimrc files.
+set noexrc
+
+" Prevent vim from beeping on errors.
+set visualbell t_vb=
+
+" Shorten the delay certain key sequences can cause (e.g., <ESC><O>).
 " (The delay has to do with control characters, I think.)
 set timeoutlen=300
-set linebreak
-" Search case-insensitively if pattern contains no capital letters
-" (Both options must be set for smartcase to work. Why? No idea.)
+
+" Soft-wrap lines at word boundaries.
+set wrap linebreak
+
+" Search case-insensitively if pattern contains no capital letters.
 set ignorecase smartcase
+
+" Show commands as they're typed.
 set showcmd
+
+" Always show the status line.
 set laststatus=2
+
+" Don't highlight search matches.
 set nohlsearch
+
+" Don't show folds.
+set nofoldenable
 
 " Always keep at least five lines visible above and below the cursor.
 set scrolloff=5
 
-let g:pyindent_open_paren = '&ts'
-let g:pyindent_nested_paren = '&ts'
-let g:pyindent_continue = '&ts * 2'
+" Disable matchparen plugin.
+let g:loaded_matchparen = 1
 
-let g:loaded_matchparen=1
-
-try
-	source ~/.vimrc-local
-catch
-	" ignore it
-endtry
-
-filetype on
-filetype plugin on
-filetype indent on
-syntax on
 set number
 
 noremap - "_
-
-"if &ft == "python"
-	"set nosmartindent
-	"echo "nope"
-"endif
-
-"command Equal set noequalalways | set equalalways
-" <C-w => does the same thing
-
-"if !exists("my_autocmds")
-	"let my_autocmds = 1
-	"autocmd ColorScheme * highlight WhitespaceEOL ctermbg=red guibg=red
-	"autocmd ColorScheme * match WhitespaceEOL /\s\+$/
-"endif
-
-fu! Onfileload()
-	if &filetype == '' || &filetype == 'text'
-		set autoindent
-		call clearmatches()
-	endif
-	if &filetype != 'vim'
-		set indentkeys=o,O
-		if &filetype != '' && &filetype != 'text'
-			set indentkeys+=e,:
-		endif
-	endif
-	if &filetype != '' && &filetype != 'markdown' && &filetype != 'html' &&
-				\ &filetype != 'htmldjango' && &filetype != 'gitconfig' &&
-				\ &filetype != 'text' && &filetype != 'tex'
-        " max 79 chars per line
-		call matchadd('Error', '\%80v.\+', 0)
-	endif
-	if &filetype == 'css'
-		set autoindent
-	endif
-	"endif
-	"if &filetype != '' | call matchadd('Error', '\%81v.*', 0)
-	"if &filetype != '' | call matchadd('Error', '\%>80v', 0)
-	"set cinkeys-=0#
+nnoremap <space> i
 
 
-	if &filetype == 'html' || &filetype == 'htmldjango' ||
-			\ &filetype == 'javascript' || &filetype == 'css'
-		set expandtab
-	endif
-
-	if &filetype == "c" || &filetype == "cpp" || &filetype == "python"
-		set cinkeys-=:
-		set indentkeys-=:
-		set expandtab
-	endif
-
-	if &filetype == "python"
-		set nosmartindent
-		"set indentkeys-=<:>
-		"set indentkeys-=:
-		set foldmethod=indent
-		set expandtab
-	endif
-	normal zR
-
-	if &filetype != '' && &filetype != 'text' && &filetype != 'htmldjango'
-		RainbowParenthesesLoadBraces
-		RainbowParenthesesLoadRound
-		RainbowParenthesesLoadSquare
-		call rainbow_parentheses#activate()
-	endif
-
-	if &filetype == 'asm' || &filetype == 'masm' || &filetype == 'sql'
-		set expandtab
-		set autoindent
-	endif
-
-	call matchadd('Error', '\s\+$')
-
-	if exists('*Onfileload_local')
-		call Onfileload_local()
-	endif
-	if exists('*Onfileload_exrc')
-		call Onfileload_exrc()
-	endif
+func HiLongLn(len)
+    call matchadd('Error', '\%' . a:len . 'v.\+', 0)
 endf
 
-try
-	source ~/.vimrc-local-autocmd
-catch
-	" ignore it
-endtry
+func HiEolWs()
+    call matchadd('Error', '\s\+$')
+endf
 
-"au BufRead * call matchadd('Keyword', '[{}]')
+func Rbpt()
+    RainbowParenthesesLoadBraces
+    RainbowParenthesesLoadRound
+    RainbowParenthesesLoadSquare
+    call rainbow_parentheses#activate()
+endf
 
-autocmd Syntax * call Onfileload()
-" That autocmd replaces this {
-"let w:created=1
-"autocmd WinEnter * if !exists('w:created') | let w:created=1 |
-			"\ call Onfileload() | endif
-"autocmd VimEnter * call Onfileload()
-"autocmd BufRead * call Onfileload()
-"autocmd BufNewFile * call Onfileload()
-" } and is also better.
-
-"map <Leader>a <C-w>}
 map <Leader>O :%foldc<Enter>
 map <Leader>o :%foldo<Enter>
 
-" courtesy of Zanthrus on Stack Overflow:
-"au BufWritePost *.c,*.cpp,*.h silent! !ctags -R >/dev/null 2>&1 &
-
 let g:rbpt_colorpairs = [
-		\ ['darkgreen',   'RoyalBlue3'],
-		\ ['darkcyan',    'SeaGreen3'],
-		\ ['red',         'DarkOrchid3'],
-		\ ['Darkblue',    'firebrick3'],
-		\ ['darkgreen',   'RoyalBlue3'],
-		\ ['darkcyan',    'SeaGreen3'],
-		\ ['red',         'DarkOrchid3'],
-		\ ['darkmagenta', 'firebrick3'],
-		\ ['brown',       'RoyalBlue3'],
-		\ ['gray',        'SeaGreen3'],
-		\ ['darkmagenta', 'DarkOrchid3'],
-		\ ['Darkblue',    'firebrick3'],
-		\ ['darkgreen',   'RoyalBlue3'],
-		\ ['darkcyan',    'SeaGreen3'],
-		\ ['red',     	  'DarkOrchid3'],
-		\ ['gray',        'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['red',         'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['red',         'DarkOrchid3'],
+    \ ['darkmagenta', 'firebrick3'],
+    \ ['brown',       'RoyalBlue3'],
+    \ ['gray',        'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['red',     	  'DarkOrchid3'],
+    \ ['gray',        'firebrick3'],
 \ ]
 
 colorscheme elflord
-
-set exrc
-set secure
