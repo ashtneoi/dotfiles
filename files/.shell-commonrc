@@ -76,10 +76,18 @@ export EDITOR=vim
 export PAGER=less
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 
-if [[ -e ~/.shell-commonrc-local ]]; then {
+if [[ -e ~/.shell-commonrc-local ]]; then
 	source ~/.shell-commonrc-local
-}; fi
+fi
+
+if [[ ":$PATH:" != *":$HOME/bin:"* ]]; then
+	export PATH=~/bin:$PATH
+fi
 
 TERM=xterm-256color
+
+vim() {
+	/usr/bin/env vim --cmd "let localrtp = '`findup .vim`'" -u ~/.vimrc $*
+}
 
 # vim: syntax=sh:

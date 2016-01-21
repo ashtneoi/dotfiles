@@ -92,10 +92,6 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 	. /etc/bash_completion
 fi
 
-if ! echo $PATH | grep ~ >/dev/null 2>&1; then {
-	export PATH=$PATH:~/bin
-}; fi
-
 alias re='source ~/ros/devel/setup.bash'
 
 source ~/.shell-commonrc
