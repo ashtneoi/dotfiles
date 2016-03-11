@@ -6,7 +6,7 @@ setopt notify
 bindkey -e
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/russell/.zshrc'
+zstyle :compinstall filename '~/.zshrc'
 
 autoload -Uz compinit
 compinit
@@ -57,8 +57,6 @@ alias -g '~~= >/dev/null 2>&1 &!'
 __git_files () {
 	_wanted files expl 'local files' _files
 }
-
-alias re='source ~/ros/devel/setup.zsh'
 
 source ~/.zshrc-keys
 source ~/.shell-commonrc
