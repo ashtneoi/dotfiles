@@ -51,10 +51,12 @@ set scrolloff=5
 " Disable matchparen plugin.
 let g:loaded_matchparen = 1
 
-set number
+set number ruler
 
+noremap Y y$
 noremap - "_
 nnoremap <space> i
+inoremap <C-f> <ESC>
 
 
 func HiLongLn(len)
