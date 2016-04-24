@@ -1,7 +1,7 @@
 set expandtab ts=4
 let &sw=&ts
 
-set smartindent cinwords=if,elif,else,while,for,with,try,except,def,class
+set autoindent cinwords=if,elif,else,while,for,with,try,except,def,class
 
 set foldmethod=indent
 

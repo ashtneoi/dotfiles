@@ -1,7 +1,7 @@
 set expandtab ts=4
 let &sw=&ts
 
-set smartindent
+set autoindent
 
 
 if exists("b:did_ftplugin")
