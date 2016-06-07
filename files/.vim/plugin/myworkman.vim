@@ -3,50 +3,66 @@ nnoremap <Leader>w :call NMapWorkman()<CR>
 function! NMapWorkman()
     noremap q d
     noremap d s
-    noremap r c
-    noremap w r
+    noremap r r
+    noremap w c
 
     noremap Q D
     noremap D S
-    noremap R C
-    noremap W R
+    noremap R R
+    noremap W C
 
     noremap a i
+    onoremap a a
     noremap s O
+    onoremap s i
     noremap h o
+    onoremap h f
     noremap t a
+    onoremap t t
 
     noremap A I
     noremap T A
 
     noremap z N
+    noremap x x
+    noremap m p
     noremap c n
 
-    noremap f 0
-    noremap u G
-    noremap p gg
-    noremap ; $
+    noremap X X
+    noremap M P
 
-    noremap F M
-    noremap U L
-    noremap P H
-    noremap : M
+    noremap f B
+    noremap u <C-d>
+    noremap p <C-u>
+    noremap ; W
 
+    noremap F 0
+    noremap U G
+    noremap P gg
+    noremap : $
+
+    noremap y y
     noremap n h
     noremap e j
     noremap o k
     noremap i l
-
-    noremap N B
-    noremap E <C-d>
-    noremap O <C-u>
-    noremap I W
     noremap ' V
 
+    noremap Y y$
+    noremap N M
+    noremap E <C-e>
+    noremap O <C-y>
+    noremap I M
     noremap " v
+
+    noremap <C-n> <C-w>h
+    noremap <C-e> <C-w>j
+    noremap <C-o> <C-w>k
+    noremap <C-i> <C-w>l
 
     noremap k u
     noremap l <C-r>
     noremap ? :
 
+    noremap <Space> f
 endfunction

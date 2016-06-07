@@ -10,12 +10,10 @@ if exists("localrtp")
     let &runtimepath .= ',' . localrtp
 endif
 
-
 " Enable syntax highlighting and automatic indentation.
 filetype on
 filetype plugin on
 syntax on
-
 
 " Disable per-directory vimrc files.
 set noexrc
@@ -42,11 +40,15 @@ set laststatus=2
 " Don't highlight search matches.
 set nohlsearch
 
-" Don't show folds.
+" Don't show folds (doesn't always work for some reason).
 set nofoldenable
 
 " Always keep at least five lines visible above and below the cursor.
 set scrolloff=5
+
+" Round indentation to the nearest multiple of shiftwidth.
+set shiftround
+
 
 " Disable matchparen plugin.
 let g:loaded_matchparen = 1
