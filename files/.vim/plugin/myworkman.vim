@@ -66,3 +66,5 @@ function! NMapWorkman()
 
     noremap <Space> f
 endfunction
+
+call NMapWorkman()
