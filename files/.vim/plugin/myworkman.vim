@@ -43,8 +43,8 @@ function! NMapWorkman()
 
     noremap y y
     noremap n h
-    noremap e j
-    noremap o k
+    noremap e gj
+    noremap o gk
     noremap i l
     noremap ' V
 
