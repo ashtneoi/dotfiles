@@ -49,6 +49,9 @@ set scrolloff=5
 " Round indentation to the nearest multiple of shiftwidth.
 set shiftround
 
+" Enable keycode timeout and disable mapped command timeout.
+set notimeout ttimeout
+
 
 " Disable matchparen plugin.
 let g:loaded_matchparen = 1
