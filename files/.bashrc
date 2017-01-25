@@ -94,4 +94,6 @@ fi
 
 alias re='source ~/ros/devel/setup.bash'
 
+bind 'set show-all-if-ambiguous on'
+
 source ~/.shell-commonrc
