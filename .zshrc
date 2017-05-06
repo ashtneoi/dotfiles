@@ -58,7 +58,9 @@ __git_files () {
 	_wanted files expl 'local files' _files
 }
 
-source ~/.zshrc-keys
+if [[ -e ~/.zshrc-keys ]]; then
+	source ~/.zshrc-keys
+fi
 source ~/.shell-commonrc
 
 autoload run-help
