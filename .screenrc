@@ -1,1 +1,4 @@
 vbell off
+altscreen on
+escape ^Tt
+caption always
