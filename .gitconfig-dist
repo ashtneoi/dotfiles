@@ -14,6 +14,7 @@
 	co = checkout
 	conflicts = diff --name-only --diff-filter=U
 	down = !git pull --ff-only
+	downr = !git pull --rebase
 	h = rev-parse HEAD
 	lg = log --graph --all --decorate
 	# Courtesy of Andrew Berry; seen on http://www.lullabot.com/blog/article/handling-git-pull-automatic-merges
