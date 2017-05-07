@@ -2,11 +2,6 @@
 # E.g., `source ~/.shell-commonrc`
 
 
-q() {
-	$* &>/dev/null &
-	disown
-}
-
 alias info='/usr/bin/info --vi-keys'
 
 ldot() {
