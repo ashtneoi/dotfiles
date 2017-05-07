@@ -94,10 +94,6 @@ fi
 
 TERM=xterm-256color
 
-vim() {
-	/usr/bin/env vim --cmd "let localrtp = '`findup .vim`'" -u ~/.vimrc $*
-}
-
 unz() {
 	mkdir $1 && unzip $1.zip -d $1
 }
