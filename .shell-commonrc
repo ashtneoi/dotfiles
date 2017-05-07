@@ -37,6 +37,8 @@ alias notes='vim $(date -I)'
 
 alias ve='source .env/bin/activate'
 
+alias mvim='vim -MR'
+
 follow() {
 	if ! which $* >/dev/null 2>&1; then {
 		echo "$0: $1: No such file or file is not in path.";

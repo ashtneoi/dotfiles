@@ -8,6 +8,7 @@ let g:did_vimrc = 1
 set runtimepath=~/.vim,/usr/share/vim/vim74
 if exists("localrtp")
     let &runtimepath .= ',' . localrtp
+    execute 'source' . localrtp . '/.vimrc'
 endif
 
 " Enable syntax highlighting and automatic indentation.
