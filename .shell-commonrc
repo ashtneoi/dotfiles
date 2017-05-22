@@ -64,9 +64,6 @@ if [[ -e /usr/bin/glhack ]]; then {
 alias sudo='sudo '
 # The space at the end allows alias expansion of the word following 'sudo'
 
-# Similar to `git remote -v`
-#alias gitrepo="git config --get-regexp 'remote\..*\.url' | awk '{print \$2}'"
-
 export LESS='-MR --shift=5'
 export EDITOR=vim
 export PAGER=less
