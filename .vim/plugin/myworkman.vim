@@ -46,14 +46,12 @@ function! NMapWorkman()
     noremap e gj
     noremap o gk
     noremap i l
-    noremap ' V
 
     noremap Y y$
     noremap N M
     noremap E <C-e>
     noremap O <C-y>
     noremap I M
-    noremap " v
 
     noremap <C-n> <C-w>h
     noremap <C-e> <C-w>j
@@ -62,7 +60,8 @@ function! NMapWorkman()
 
     noremap k u
     noremap l <C-r>
-    noremap ? :
+    noremap ' /
+    noremap " :
 
     noremap <Space> f
 endfunction
