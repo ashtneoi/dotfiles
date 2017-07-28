@@ -24,7 +24,7 @@
 	s = status -bs -uno
 	sl = status -b -uno
 	temp = !git commit -am 'temp '$(date -Is)
-	trash = !cd $GIT_PREFIX && git clean -dxn | cut -f3- -d' '
+	trash = !cd ./$GIT_PREFIX && git clean -dxn | cut -f3- -d' '
 	untracked = ls-files --others --exclude-standard --directory
 [merge]
 	conflictstyle = diff3
