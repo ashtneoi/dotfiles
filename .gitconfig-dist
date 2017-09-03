@@ -14,6 +14,8 @@
 	br = "!f() { git branch --list -r $1/'*'; }; f"
 	co = checkout
 	conflicts = diff --name-only --diff-filter=U
+	d = diff
+	dc = diff --cached
 	down = !git pull --ff-only
 	downr = !git pull --rebase
 	h = rev-parse HEAD
