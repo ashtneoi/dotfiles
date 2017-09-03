@@ -5,8 +5,6 @@ if exists("g:did_vimrc")
 endif
 let g:did_vimrc = 1
 
-set runtimepath=~/.vim,/usr/share/vim/vim74
-
 " Enable syntax highlighting and automatic indentation.
 filetype on
 filetype plugin on
