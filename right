@@ -1,0 +1,3 @@
+xinput --set-button-map "Kensington      Kensington Expert Mouse" 3 2 8 4 5 0 0 1
+xinput set-prop "Kensington      Kensington Expert Mouse" \
+	"libinput Natural Scrolling Enabled" 0
