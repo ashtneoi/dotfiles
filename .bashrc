@@ -62,7 +62,7 @@ setPrompt() {
 	local P=$'\[\e[1;35m\]' #purple
 	local C=$'\[\e[1;36m\]' #cyan
 	local X=$'\[\e[0m\]' #no color
-	PS1="${P}\u${X}@${B}\h${X} (${G}\w${X})${P}\$${X} "
+	PS1="${P}\u${X}@${C}\h${X} (${G}\w${X})${P}\$${X} "
 }
 
 setPrompt
