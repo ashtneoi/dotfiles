@@ -84,7 +84,11 @@ unz() {
 }
 
 mcd() {
-	mkdir $1 && cd $1
+	mkdir "$@" && cd "$@"
+}
+
+mcdate() {
+	mcd $(date -I)
 }
 
 # vim: syntax=sh:
