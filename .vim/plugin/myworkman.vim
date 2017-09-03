@@ -49,8 +49,8 @@ function! NMapWorkman()
 
     noremap Y y$
     noremap N M
-    noremap E <C-e>
-    noremap O <C-y>
+    noremap E 5j
+    noremap O 5k
     noremap I M
 
     noremap <C-n> <C-w>h
@@ -64,7 +64,7 @@ function! NMapWorkman()
 
     noremap <Space> f
 
-    inoremap <C-t> <Esc>
+    inoremap <C-f> <Esc>
 endfunction
 
 call NMapWorkman()
