@@ -60,7 +60,7 @@ function! NMapWorkman()
 
     noremap k u
     noremap l <C-r>
-    noremap ; /
+    noremap ; V
 
     noremap <Space> f
 
