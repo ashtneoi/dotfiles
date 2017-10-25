@@ -22,7 +22,7 @@
 	lg = log --graph --all --decorate
 	# Courtesy of Andrew Berry; seen on http://www.lullabot.com/blog/article/handling-git-pull-automatic-merges
 	lg2 = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ci) %C(bold blue)<%an>%Creset' --abbrev-commit
-	pu = "!f() { [ $# -ge 1 ] || { echo wrong && return; }; git push --set-upstream $1 $(git rev-parse --abbrev-ref HEAD); }; f"
+	pu = "!f() { [ $# -ge 1 ] || { echo wrong && return 1; }; git push --set-upstream $1 $(git rev-parse --abbrev-ref HEAD); }; f"
 	s = status -bs -uno
 	sl = status -b -uno
 	temp = !git commit -am 'temp '$(date -Is)
