@@ -77,23 +77,6 @@ endf
 map <Leader>O :%foldc<Enter>
 map <Leader>o :%foldo<Enter>
 
-let g:rbpt_colorpairs = [
-    \ ['darkgreen',   'RoyalBlue3'],
-    \ ['darkcyan',    'SeaGreen3'],
-    \ ['red',         'DarkOrchid3'],
-    \ ['Darkblue',    'firebrick3'],
-    \ ['darkgreen',   'RoyalBlue3'],
-    \ ['darkcyan',    'SeaGreen3'],
-    \ ['red',         'DarkOrchid3'],
-    \ ['darkmagenta', 'firebrick3'],
-    \ ['brown',       'RoyalBlue3'],
-    \ ['gray',        'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['Darkblue',    'firebrick3'],
-    \ ['darkgreen',   'RoyalBlue3'],
-    \ ['darkcyan',    'SeaGreen3'],
-    \ ['red',     	  'DarkOrchid3'],
-    \ ['gray',        'firebrick3'],
-\ ]
+let g:rainbow_active = 1
 
 colorscheme elflord
