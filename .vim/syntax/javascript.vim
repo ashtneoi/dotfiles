@@ -1,6 +1,8 @@
 call HiLongLn(80)
 call HiEolWs()
-"highlight clear Error
+set et ts=4
+let &sw=&ts
+set autoindent
 
 
 if exists("b:did_syntax")

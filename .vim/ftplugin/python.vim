@@ -14,4 +14,3 @@ let b:did_ftplugin = 1
 
 call HiLongLn(80)
 call HiEolWs()
-call Rbpt()  " ??????

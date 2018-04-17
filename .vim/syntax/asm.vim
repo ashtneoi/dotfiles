@@ -1,4 +1,3 @@
-call Rbpt()
 call HiLongLn(80)
 call HiEolWs()
 

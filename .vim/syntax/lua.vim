@@ -1,7 +1,4 @@
 if exists("b:did_syntax")
     finish
 endif
-let b:did_ftplugin = 1
-
-
-call Rbpt()
+let b:did_syntax = 1
