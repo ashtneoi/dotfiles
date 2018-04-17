@@ -2,6 +2,7 @@
 	editor = vim
 [push]
 	default = simple
+	followTags = true
 [user]
 	name = NAME
 	email = EMAIL
