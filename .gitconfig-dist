@@ -31,3 +31,7 @@
 	untracked = ls-files --others --exclude-standard --directory
 [merge]
 	conflictstyle = diff3
+[advice]
+	statusHints = false
+	detachedHead = false
+	resolveConflict = false
