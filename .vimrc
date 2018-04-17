@@ -67,13 +67,6 @@ func HiEolWs()
     call matchadd('Error', '\s\+$')
 endf
 
-func Rbpt()
-    RainbowParenthesesLoadBraces
-    RainbowParenthesesLoadRound
-    RainbowParenthesesLoadSquare
-    call rainbow_parentheses#activate()
-endf
-
 map <Leader>O :%foldc<Enter>
 map <Leader>o :%foldo<Enter>
 
