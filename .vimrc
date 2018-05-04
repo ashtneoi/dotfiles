@@ -23,7 +23,7 @@ noremap Y y$
 noremap - "_
 
 let g:rainbow_conf = { 'cterm': 'bold' }
-let g:rainbow_active = 1
+let g:rainbow_active = 0
 
 func EachWin()
     " `silent` suppresses 'No matching autocommands' warning.
