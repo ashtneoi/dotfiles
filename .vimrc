@@ -1,5 +1,5 @@
 set nocompatible
-let loaded_matchparen = 1
+let g:loaded_matchparen = 1
 
 execute pathogen#infect()
 
