@@ -25,6 +25,8 @@ noremap - "_
 let g:rainbow_conf = { 'cterm': 'bold' }
 let g:rainbow_active = 0
 
+set expandtab tabstop=4 shiftwidth=4
+
 func EachWin()
     " `silent` suppresses 'No matching autocommands' warning.
     if !exists('w:created')
