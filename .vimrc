@@ -26,11 +26,36 @@ let g:rainbow_conf = { 'cterm': 'bold' }
 let g:rainbow_active = 1
 
 func EachWin()
-    call rainbow#hook()
+    " `silent` suppresses 'No matching autocommands' warning.
+    if !exists('w:created')
+        let w:created = 1
+        silent doautocmd eachwin User <buffer>
+    endif
 endfunc
 
-autocmd VimEnter * call EachWin() | let w:created = 1
-autocmd WinEnter * if !exists('w:created')
-    \ | call EachWin()
-    \ | let w:created = 1
-    \ | endif
+func EachBuf()
+    if !exists('b:created')
+        let b:created = 1
+        silent! unlet w:created
+    endif
+endfunc
+
+if !exists('g:did_vimrc')
+    augroup eachwin
+    augroup END
+
+    autocmd VimEnter * call EachBuf() | call EachWin()
+    autocmd WinEnter * call EachWin()
+    autocmd BufNewFile,BufReadPost,FilterReadPost,FileReadPost *
+        \ call EachBuf() | call EachWin()
+
+    let g:did_vimrc = 1
+endif
+
+func HiLongLn(len)
+    call matchadd('Error', '\%' . a:len . 'v.\+', 0)
+endf
+
+func HiEolWs()
+    call matchadd('Error', '\s\+$')
+endf
