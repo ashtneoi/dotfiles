@@ -28,28 +28,27 @@ let g:rainbow_active = 0
 set expandtab tabstop=4 shiftwidth=4
 
 func EachWin()
-    " `silent` suppresses 'No matching autocommands' warning.
     if !exists('w:created')
         let w:created = 1
+        " `silent` suppresses 'No matching autocommands' warning.
         silent doautocmd eachwin User <buffer>
     endif
 endfunc
 
 func EachBuf()
-    if !exists('b:created')
-        let b:created = 1
-        silent! unlet w:created
-    endif
+    silent! unlet w:created
+    call clearmatches()
+    call EachWin()
 endfunc
 
 if !exists('g:did_vimrc')
     augroup eachwin
     augroup END
 
-    autocmd VimEnter * call EachBuf() | call EachWin()
+    autocmd VimEnter * call EachBuf()
     autocmd WinEnter * call EachWin()
     autocmd BufNewFile,BufReadPost,FilterReadPost,FileReadPost *
-        \ call EachBuf() | call EachWin()
+        \ call EachBuf()
 
     let g:did_vimrc = 1
 endif
