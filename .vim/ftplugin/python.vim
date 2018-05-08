@@ -1,3 +1,5 @@
-set et ts=4 sw=4
+" The Python indent plugin is incompetent.
+autocmd! eachwinft User <buffer> setlocal indentkeys=
 
-set autoindent cinwords=if,elif,else,while,for,with,try,except,def,class
+set et ts=4 sw=4
+set autoindent

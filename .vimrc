@@ -35,7 +35,8 @@ func EachWin()
     if !exists('w:created')
         let w:created = 1
         " `silent` suppresses 'No matching autocommands' warning.
-        silent doautocmd eachwin User <buffer>
+        silent doautocmd eachwinsyn User <buffer>
+        silent doautocmd eachwinft User <buffer>
     endif
 endfunc
 
@@ -46,7 +47,8 @@ func EachBuf()
 endfunc
 
 if !exists('g:did_vimrc')
-    augroup eachwin
+    augroup eachwinsyn
+    augroup eachwinft
     augroup END
 
     autocmd VimEnter * call EachBuf()
