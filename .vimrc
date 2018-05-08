@@ -22,7 +22,11 @@ set number ruler
 noremap Y y$
 noremap - "_
 
-let g:rainbow_conf = { 'cterm': 'bold' }
+let g:rainbow_conf = {
+        \ 'cterm': 'bold',
+        \ 'ctermfgs': ['lightgray', 'red', 'yellow', 'darkgreen', 'lightblue',
+            \ 'darkmagenta']
+    \}
 let g:rainbow_active = 0
 
 set expandtab tabstop=4 shiftwidth=4
