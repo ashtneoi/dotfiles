@@ -17,8 +17,9 @@
 	conflicts = diff --name-only --diff-filter=U
 	d = diff
 	dc = diff --cached
-	down = !git pull --ff-only
-	downr = !git pull --rebase
+	down = pull --ff-only
+	downr = pull --rebase
+	ff = merge --ff-only
 	h = rev-parse HEAD
 	initial = commit -o --allow-empty -m'Initial commit (empty)' -e
 	lg = log --graph --all --decorate
