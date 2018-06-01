@@ -4,7 +4,8 @@ let g:loaded_matchparen = 1
 execute pathogen#infect()
 
 syntax on
-filetype plugin indent on
+filetype plugin on
+" No indent anymore. I hate vim with a burning fiery passion.
 colorscheme elflord
 
 set visualbell t_vb=
@@ -49,6 +50,7 @@ endfunc
 if !exists('g:did_vimrc')
     augroup eachwinsyn
     augroup eachwinft
+    augroup eachwinind
     augroup END
 
     autocmd VimEnter * call EachBuf()

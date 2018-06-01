@@ -8,15 +8,15 @@ ldot() {
 	ls -AF --group-directories-first $* | grep '^\.'
 }
 
-alias l='/bin/ls -AFv --group-directories-first'
-alias lc='l --color'
-alias ll='l -l'
-alias llv='ll -v'
+alias l='/bin/ls -AFNv --group-directories-first'
+alias lc='l --color -N'
+alias ll='l -Nl'
+alias llv='ll -Nv'
 
-alias ls='/bin/ls -v'
-alias lsl='ls -l'
-alias lsc='ls --color'
-alias lsd='ls -d */'
+alias ls='/bin/ls -Nv'
+alias lsl='ls -Nl'
+alias lsc='ls -N --color'
+alias lsd='ls -Nd */'
 
 
 mana() {
