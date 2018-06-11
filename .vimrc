@@ -62,7 +62,7 @@ if !exists('g:did_vimrc')
 endif
 
 func HiLongLn(len)
-    call matchadd('Error', '\%' . a:len . 'v.\+', 0)
+    call matchadd('Error', '\%' . (a:len + 1) . 'v.\+', 0)
 endf
 
 func HiEolWs()
