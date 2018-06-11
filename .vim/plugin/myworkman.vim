@@ -63,6 +63,7 @@ function! NMapWorkman()
     noremap ; V
 
     noremap <Space> f
+    noremap <BS> ;
 
     inoremap <C-f> <Esc>
 endfunction
