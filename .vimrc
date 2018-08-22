@@ -55,7 +55,7 @@ if !exists('g:did_vimrc')
 
     autocmd VimEnter * call EachBuf()
     autocmd WinEnter * call EachWin()
-    autocmd BufNewFile,BufReadPost,FilterReadPost,FileReadPost *
+    autocmd BufNewFile,BufReadPost,FilterReadPost,FileReadPost,FileType,Syntax *
         \ call EachBuf()
 
     let g:did_vimrc = 1
