@@ -59,6 +59,12 @@ augroup onfileload
 	au User * endif
 augroup END
 
+try
+	source ~/.vimrc-local-autocmd
+catch
+	" ignore it
+endtry
+
 "au BufRead * call matchadd('Keyword', '[{}]')
 
 let w:created=1
