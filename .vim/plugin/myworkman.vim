@@ -44,7 +44,9 @@ function! NMapWorkman()
     noremap y y
     noremap n h
     noremap e gj
+    noremap ge j
     noremap o gk
+    noremap go k
     noremap i l
 
     noremap Y y$
