@@ -67,7 +67,7 @@ while true; do {
 	}; fi
 	
 	streak=0
-	while [[ $streak < $maxstreak ]]; do {
+	while [[ $streak -lt $maxstreak ]]; do {
 		echo 'Pinging 8.8.8.8 ....'
 		ping -vc 1 -W 6 8.8.8.8 | grep -i '64 bytes from'; reachable=$?
 		if [[ $reachable != $yes ]]; then {
