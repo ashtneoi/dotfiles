@@ -19,6 +19,7 @@ set nofoldenable
 set scrolloff=5
 set shiftround
 set number ruler
+set nojoinspaces
 
 noremap Y y$
 noremap - "_
