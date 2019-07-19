@@ -34,12 +34,12 @@ function! NMapWorkman()
     noremap f B
     noremap u <C-d>
     noremap p <C-u>
-    noremap ' W
+    noremap ; W
 
     noremap F 0
     noremap U G
     noremap P gg
-    noremap " $
+    noremap : $
 
     noremap y y
     noremap n h
@@ -62,7 +62,8 @@ function! NMapWorkman()
 
     noremap k u
     noremap l <C-r>
-    noremap ; V
+    noremap ' V
+    noremap " :
 
     noremap <Space> f
     noremap <BS> ;
