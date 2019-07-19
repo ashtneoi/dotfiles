@@ -6,7 +6,7 @@ execute pathogen#infect()
 syntax on
 filetype plugin on
 " No indent anymore. I hate vim with a burning fiery passion.
-colorscheme elflord
+colorscheme industry
 
 set visualbell t_vb=
 set notimeout ttimeout timeoutlen=300
@@ -26,8 +26,7 @@ noremap - "_
 
 let g:rainbow_conf = {
         \ 'cterm': 'bold',
-        \ 'ctermfgs': ['lightgray', 'red', 'yellow', 'darkgreen', 'lightblue',
-            \ 'darkmagenta']
+        \ 'ctermfgs': ['red', 'yellow', 'darkgreen', 'lightblue', 'darkmagenta']
     \}
 let g:rainbow_active = 0
 
