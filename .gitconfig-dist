@@ -14,6 +14,8 @@
 	amend = commit --amend --no-edit
 	br = "!f() { git branch --list -r $1/'*'; }; f"
 	co = checkout
+	cob = checkout --no-track -b
+	cor = "!f() { git fetch $1 && git checkout $1/$2; }; f"
 	conflicts = diff --name-only --diff-filter=U
 	d = diff
 	dc = diff --cached
@@ -25,7 +27,7 @@
 	lg = log --graph --all --decorate
 	# Courtesy of Andrew Berry; seen on http://www.lullabot.com/blog/article/handling-git-pull-automatic-merges
 	lg2 = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ci) %C(bold blue)<%an>%Creset' --abbrev-commit
-	pu = "!f() { [ $# -ge 1 ] || { echo wrong && return 1; }; git push --set-upstream $1 $(git rev-parse --abbrev-ref HEAD); }; f"
+	push-new = "!f() { [ $# -ge 1 ] || { echo wrong && return 1; }; git push --set-upstream $1 $(git rev-parse --abbrev-ref HEAD); }; f"
 	s = status -bs -uno
 	sl = status -b -uno
 	temp = !git commit -am 'temp '$(date -Is)
@@ -34,6 +36,7 @@
 	untracked = ls-files --others --exclude-standard --directory
 [merge]
 	conflictstyle = diff3
+	tool = meld
 [advice]
 	statusHints = false
 	detachedHead = false
