@@ -16,7 +16,7 @@
 	br = "!f() { git branch --list -r $1/'*'; }; f"
 	co = checkout
 	cob = checkout --no-track -b
-	cor = "!f() { git fetch $1 && git checkout $1/$2; }; f"
+	cor = "!f() { git fetch ${1-origin} && git checkout ${1-origin}/${2-master}; }; f"
 	conflicts = diff --name-only --diff-filter=U
 	d = diff
 	dc = diff --cached
