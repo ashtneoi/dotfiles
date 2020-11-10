@@ -31,7 +31,7 @@
 	push-new = "!f() { [ $# -ge 1 ] || { echo wrong && return 1; }; git push --set-upstream $1 $(git rev-parse --abbrev-ref HEAD); }; f"
 	s = status -bs -uno
 	sl = status -b -uno
-	temp = !git commit -am 'temp '$(date -Is)
+	temp = !git commit -am 'temp '$(date +%Y-%m-%dT%H:%M:%S%z)
 	tinylog = log --first-parent --pretty='format:%h %ci: %s'
 	trash = !cd ./$GIT_PREFIX && git clean -dxn | cut -f3- -d' '
 	untracked = ls-files --others --exclude-standard --directory
